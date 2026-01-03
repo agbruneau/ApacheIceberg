@@ -1,12 +1,8 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
-## **TABLE DES MATIÈRES ADAPTÉE AU CONTEXTE CONFLUENT CLOUD KAFKA**
-
 # Architecting an Apache Iceberg Lakehouse
 
 **Contexte d'exploitation : Confluent Cloud Kafka**
 
-***
+---
 
 ## **PARTIE 1 : LA VALEUR DU LAKEHOUSE APACHE ICEBERG**
 
@@ -20,7 +16,6 @@
 - **Cas d'usage**: Unified streaming lakehouse avec Confluent Cloud
 - Avantages de l'intégration Kafka-Iceberg pour analytics temps réel[^1][^2]
 
-
 ### **Chapitre 2 : Pratique avec Apache Iceberg**
 
 **Adaptations Confluent Cloud:**
@@ -31,7 +26,7 @@
 - Utilisation du Iceberg REST Catalog avec Confluent
 - Validation de l'ingestion temps réel
 
-***
+---
 
 ## **PARTIE 2 : CONCEPTION DE VOTRE ARCHITECTURE ICEBERG KAFKA**
 
@@ -45,7 +40,6 @@
 - **Considérations spécifiques**: Débit Kafka, latence, volume de données
 - Planification de la transition: Kafka Connect vs. Tableflow vs. Flink[^5][^6]
 
-
 ### **Chapitre 4 : Sélection de la couche de stockage**
 
 **Adaptations Confluent Cloud:**
@@ -55,7 +49,6 @@
 - Stratégies de partitionnement pour données streaming
 - Considérations de coûts: S3 vs. stockage managé Confluent
 - Configuration IAM et sécurité pour accès S3 depuis Confluent Cloud[^4]
-
 
 ### **Chapitre 5 : Architecture de la couche d'ingestion**
 
@@ -90,7 +83,6 @@
 - **Change Data Capture (CDC)**: Matérialisation de streams CDC en tables Iceberg[^8]
 - **Multi-topics**: Fan-out vers plusieurs tables Iceberg[^11][^13]
 
-
 ### **Chapitre 6 : Implémentation de la couche de catalogue**
 
 **Adaptations Confluent Cloud:**
@@ -102,7 +94,6 @@
 - Gestion des métadonnées pour données streaming haute vélocité
 - Sélection du catalogue selon votre stack analytique
 
-
 ### **Chapitre 7 : Conception de la couche de fédération**
 
 **Adaptations Confluent Cloud:**
@@ -113,7 +104,6 @@
 - Requêtes sur données Kafka temps réel + Iceberg historique (vision unifiée)[^18]
 - Pattern: Query engine → Iceberg (Tableflow) → S3
 - Optimisation des requêtes pour données streaming
-
 
 ### **Chapitre 8 : Compréhension de la couche de consommation**
 
@@ -138,7 +128,7 @@
 - Pattern hybride: Kafka (temps réel) + Iceberg (historique)[^18]
 - Considérations latence pour différents cas d'usage
 
-***
+---
 
 ## **PARTIE 3 : OPÉRATION DE VOTRE LAKEHOUSE KAFKA-ICEBERG**
 
@@ -159,8 +149,8 @@
 - Jobs de compaction périodiques
 - Target file size: 256MB recommandé pour streaming[^12]
 - Stratégies de partitionnement optimales pour Kafka:
-    - **Time-series**: `PARTITIONED BY (days(event_time), bucket(8, user_id))`[^12]
-    - **Multi-tenant**: `PARTITIONED BY (tenant_id, days(event_time))`[^12]
+  - **Time-series**: `PARTITIONED BY (days(event_time), bucket(8, user_id))`[^12]
+  - **Multi-tenant**: `PARTITIONED BY (tenant_id, days(event_time))`[^12]
 
 **C. Optimisations spécifiques streaming**
 
@@ -168,7 +158,6 @@
 - Gestion données late-arriving
 - Trade-offs: Latence d'ingestion vs. taille de fichiers
 - Monitoring débit Kafka → Iceberg
-
 
 ### **Chapitre 10 : Opérationnalisation d'Apache Iceberg avec Confluent**
 
@@ -198,14 +187,14 @@
 **D. Monitoring et observabilité**
 
 - KPIs critiques:
-    - Latence end-to-end (Kafka → Iceberg query)
-    - Taux d'erreurs conversion schéma
-    - Croissance stockage S3
-    - Performance requêtes analytiques
+  - Latence end-to-end (Kafka → Iceberg query)
+  - Taux d'erreurs conversion schéma
+  - Croissance stockage S3
+  - Performance requêtes analytiques
 - Dashboards opérationnels pour pipelines temps réel[^22]
 - Troubleshooting: Problèmes courants et résolutions
 
-***
+---
 
 ## **ANNEXES ADAPTÉES CONFLUENT CLOUD**
 
@@ -216,14 +205,12 @@
 - Impact du streaming sur la croissance des métadonnées
 - Best practices: Rétention snapshots pour données streaming
 
-
 ### **Annexe B : Scripts et outils pour Confluent + Iceberg**
 
 - **Python**: Scripting pour configuration Tableflow
 - **Confluent CLI**: Automation déploiement pipelines
 - **SQL**: Exemples Flink SQL pour transformations streaming[^6][^19]
 - **Kafka Connect REST API**: Configuration programmatique Iceberg Sink[^23]
-
 
 ### **Annexe C : Spécifications et intégrations**
 
@@ -233,7 +220,7 @@
 - **Iceberg REST Catalog Specification**: Intégration avec Confluent
 - **AWS Glue Data Catalog**: Configuration pour Tableflow[^7][^4]
 
-***
+---
 
 ## **RESSOURCES COMPLÉMENTAIRES CONFLUENT**
 
@@ -242,7 +229,6 @@
 - Quickstart: Kafka → Iceberg → Snowflake avec Tableflow[^3][^4]
 - Streaming ETL avec Flink SQL et Tableflow[^6]
 - Data exploration avec Tableflow, Iceberg et Trino[^16]
-
 
 ### **Patterns d'architecture recommandés**
 
@@ -257,14 +243,13 @@
 - **Alternative**: Kafka Connect self-managed (infrastructure + maintenance)
 - **Optimisations**: Compaction, partitionnement, rétention Kafka court terme
 
-
 ### **Cas d'usage clients**
 
 - Real-time fraud detection avec Kafka + Iceberg analytics[^8]
 - IoT telemetry: Streaming ingestion → Long-term analytics[^25][^20]
 - Financial services: Compliance et audit avec Iceberg time-travel[^26][^27]
 
-***
+---
 
 ## **POINTS CLÉS POUR CONFLUENT CLOUD**
 
@@ -283,7 +268,6 @@
 - Transformations custom dans connector
 - Multi-table fan-out complexe
 
-
 ### **Quand utiliser Flink SQL + Tableflow**
 
 - Transformations streaming complexes nécessaires
@@ -291,7 +275,7 @@
 - Jointures streaming multiples sources
 - Agrégations temps réel
 
-***
+---
 
 **Cette table des matières adaptée fournit une roadmap complète pour architecturer un lakehouse Apache Iceberg avec Confluent Cloud Kafka, couvrant tous les aspects de l'ingestion streaming temps réel jusqu'à l'analytics à grande échelle.**
 <span style="display:none">[^28][^29][^30][^31][^32][^33][^34][^35][^36][^37][^38][^39][^40][^41][^42][^43][^44][^45][^46][^47][^48][^49][^50][^51][^52][^53][^54][^55][^56][^57][^58][^59][^60][^61]</span>
@@ -299,124 +283,63 @@
 <div align="center">⁂</div>
 
 [^1]: https://blog.twingdata.com/p/apache-iceberg-in-modern-data-architectures
-
 [^2]: https://www.kai-waehner.de/blog/2025/11/19/data-streaming-meets-lakehouse-apache-iceberg-for-unified-real-time-and-batch-analytics/
-
 [^3]: https://www.snowflake.com/en/developers/guides/snowflake-confluent-tableflow-iceberg/
-
 [^4]: https://quickstarts.snowflake.com/guide/snowflake-confluent-tableflow-iceberg/index.html?index=..%2F..index
-
 [^5]: https://rmoff.net/2025/08/18/kafka-to-iceberg-exploring-the-options/
-
 [^6]: https://www.confluent.io/blog/streaming-etl-flink-tableflow/
-
 [^7]: https://www.confluent.io/product/tableflow/
-
 [^8]: https://www.confluent.io/blog/tableflow-ga-kafka-snowflake-iceberg/
-
 [^9]: https://www.decodable.co/blog/kafka-to-iceberg-with-flink
-
 [^10]: https://estuary.dev/blog/kafka-to-apache-iceberg/
-
 [^11]: https://iceberg.apache.org/docs/nightly/kafka-connect/
-
 [^12]: https://www.tinybird.co/blog/optimizing-apache-iceberg-tables-for-real-time-analytics
-
 [^13]: https://iceberg.apache.org/docs/1.7.2/kafka-connect/
-
 [^14]: https://www.dremio.com/blog/using-dremio-with-confluents-tableflow-for-real-time-apache-iceberg-analytics/
-
 [^15]: https://www.confluent.io/blog/integrating-confluent-tableflow-trino-apache-iceberg-jupyter/
-
 [^16]: https://www.confluent.io/blog/building-streaming-data-pipelines-part-1/
-
 [^17]: https://www.starburst.io/blog/tableflow-confluent-starburst/
-
 [^18]: https://blog.streambased.io/p/making-iceberg-real-time
-
 [^19]: https://docs.confluent.io/cloud/current/flink/reference/sql-examples.html
-
 [^20]: https://link.springer.com/10.1007/s10796-023-10409-2
-
 [^21]: https://www.instaclustr.com/blog/streaming-data-apache-kafkaconnect-iceberg-sink-connector-part1/
-
 [^22]: https://www.confluent.io/blog/build-real-time-kafka-dashboards/
-
 [^23]: https://www.youtube.com/watch?v=5ywgsh2Wzm4
-
 [^24]: https://www.youtube.com/watch?v=O2l5SB-camQ
-
 [^25]: https://www.nationaleducationservices.org/a-unified-bigdata-pipeline-for-cloud-and-network-telemetry-design-implementation-and-benchmarking-with-hadoop-and-apache-spark/pid-2232669502
-
 [^26]: https://al-kindipublisher.com/index.php/jcsts/article/view/9727
-
 [^27]: https://www.academicpublishers.org/journals/index.php/ijdsml/article/view/4304/5286
-
 [^28]: https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/835935/046bb9e8-0c5c-4513-9b84-d2a24b325977/image.jpg
-
 [^29]: https://peerj.com/articles/cs-2899
-
 [^30]: https://ieeexplore.ieee.org/document/10724413/
-
 [^31]: https://dl.acm.org/doi/10.14778/3611540.3611567
-
 [^32]: https://wjarr.com/node/15962
-
 [^33]: https://lorojournals.com/index.php/emsj/article/view/1454
-
 [^34]: https://journalwjarr.com/node/1103
-
 [^35]: https://linkinghub.elsevier.com/retrieve/pii/S0167739X21002995
-
 [^36]: https://arxiv.org/pdf/2205.09415.pdf
-
 [^37]: http://arxiv.org/pdf/2410.15533.pdf
-
 [^38]: https://arxiv.org/pdf/2504.02364.pdf
-
 [^39]: https://www.mdpi.com/1424-8220/19/1/134/pdf
-
 [^40]: https://arxiv.org/pdf/2401.17747.pdf
-
 [^41]: https://www.epj-conferences.org/articles/epjconf/pdf/2024/05/epjconf_chep2024_01032.pdf
-
 [^42]: https://arxiv.org/abs/2309.04918
-
 [^43]: https://rmoff.net/2025/07/04/writing-to-apache-iceberg-on-s3-using-kafka-connect-with-glue-catalog/
-
 [^44]: https://www.youtube.com/watch?v=uIrM3vXKRrk
-
 [^45]: https://docs.confluent.io/platform/current/connect/kafka_connectors.html
-
 [^46]: https://github.com/apache/iceberg/issues/10745
-
 [^47]: https://docs.streamnative.io/connect/connectors/kafka-connect-iceberg/current/kafka-connect-iceberg-sink
-
 [^48]: https://blog.dataengineerthings.org/stream-kafka-topic-to-the-iceberg-tables-with-zero-etl-7ccf0e586ebc
-
 [^49]: https://www.youtube.com/watch?v=Zatav2MBoSc
-
 [^50]: https://github.com/databricks/iceberg-kafka-connect
-
 [^51]: https://www.onlinescientificresearch.com/articles/universal-data-engineering-frameworks-for-crossplatform-fraud-detection.pdf
-
 [^52]: https://linkinghub.elsevier.com/retrieve/pii/S138376212100151X
-
 [^53]: https://arxiv.org/pdf/1712.04344.pdf
-
 [^54]: http://arxiv.org/pdf/1901.09062.pdf
-
 [^55]: https://arxiv.org/pdf/2006.04105.pdf
-
 [^56]: https://www.automq.com/blog/kafka-to-iceberg-top-9-ways-2026
-
 [^57]: https://www.getorchestra.io/guides/confluent-tableflow-kafka-streaming-iceberg
-
 [^58]: https://iceberg.apache.org/docs/latest/flink-queries/
-
 [^59]: https://www.youtube.com/watch?v=k6mn2Sb1Uh4
-
 [^60]: https://iceberg.apache.org/docs/nightly/flink/
-
 [^61]: https://jack-vanlightly.com/blog/2024/3/19/tableflow-the-stream-table-kafka-iceberg-duality
-
