@@ -194,6 +194,34 @@
 - Dashboards opérationnels pour pipelines temps réel[^22]
 - Troubleshooting: Problèmes courants et résolutions
 
+### **Chapitre 11 : Synergie Confluent Cloud, Apache Iceberg et Microsoft Fabric**
+
+**Adaptations Confluent Cloud & Microsoft Fabric:**
+
+- **Architecture de l'intégration Tripartite**
+
+  - Pipeline unifié : Confluent Cloud (Streams) → Iceberg (Storage) → Microsoft Fabric (Analytics)
+  - Rôle des **Shortcuts OneLake** pour la virtualisation sans copie des tables Iceberg
+  - Configuration du stockage ADLS Gen2 comme destination pour Confluent Tableflow
+
+- **Mise en œuvre technique**
+
+  - Provisioning des topics Kafka et schémas dans Confluent Cloud
+  - Configuration de Tableflow pour matérialiser en Iceberg sur ADLS Gen2
+  - Création de Shortcuts dans un Lakehouse Fabric pointant vers les buckets Iceberg
+  - Compatibilité des métadonnées et gestion du catalogue
+
+- **Exploitation Analytique dans Fabric**
+
+  - **Power BI Direct Lake** : Visualisation haute performance directe sur Iceberg
+  - **T-SQL & Spark** : Interrogation transparente des données streaming via les moteurs Fabric
+  - Enrichissement : Croisement des données chaudes (Iceberg) avec le data warehouse d'entreprise (OneLake)
+
+- **Gouvernance et Sécurité étendu**
+  - Sécurité Entra ID (Azure AD) unifiée sur la couche de stockage
+  - Lineage de bout en bout : du Producer Kafka au Dashboard Power BI
+  - Gestion du cycle de vie des données et conformité (Purview + Stream Governance)
+
 ---
 
 ## **ANNEXES ADAPTÉES CONFLUENT CLOUD**
