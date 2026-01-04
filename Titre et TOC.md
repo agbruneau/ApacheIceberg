@@ -4,9 +4,9 @@
 
 ---
 
-## **PARTIE 1 : LA VALEUR DU LAKEHOUSE APACHE ICEBERG**
+## **PARTIE 1 : FONDATIONS & INTERNALS**
 
-### **Chapitre 1 : Le monde du Lakehouse Apache Iceberg**
+### **Chapitre 1 : Le concept de Streaming Lakehouse**
 
 **Adaptations Confluent Cloud:**
 
@@ -16,185 +16,98 @@
 - **Cas d'usage**: Unified streaming lakehouse avec Confluent Cloud
 - Avantages de l'intégration Kafka-Iceberg pour analytics temps réel[^1][^2]
 
-### **Chapitre 2 : Pratique avec Apache Iceberg**
+### **Chapitre 2 : Anatomie Technique d'Apache Iceberg**
 
-**Adaptations Confluent Cloud:**
+**Focus Architecte [NOUVEAU]:**
 
-- Configuration initiale de Confluent Cloud et Schema Registry
-- Création de topics Kafka avec schémas Avro/JSON/Protobuf
-- Premier pipeline: Kafka → Tableflow → Iceberg (hands-on)[^3][^4]
-- Utilisation du Iceberg REST Catalog avec Confluent
-- Validation de l'ingestion temps réel
-
----
-
-## **PARTIE 2 : CONCEPTION DE VOTRE ARCHITECTURE ICEBERG KAFKA**
-
-### **Chapitre 3 : Préparation de votre migration vers Apache Iceberg**
-
-**Adaptations Confluent Cloud:**
-
-- Audit des topics Kafka existants et leurs schémas
-- Évaluation des besoins analytiques temps réel vs. batch
-- Identification des topics candidats pour Iceberg
-- **Considérations spécifiques**: Débit Kafka, latence, volume de données
-- Planification de la transition: Kafka Connect vs. Tableflow vs. Flink[^5][^6]
-
-### **Chapitre 4 : Sélection de la couche de stockage**
-
-**Adaptations Confluent Cloud:**
-
-- **Option 1**: Amazon S3 (recommandé pour Tableflow)[^7][^8]
-- **Option 2**: Confluent Managed Storage[^8]
-- Stratégies de partitionnement pour données streaming
-- Considérations de coûts: S3 vs. stockage managé Confluent
-- Configuration IAM et sécurité pour accès S3 depuis Confluent Cloud[^4]
-
-### **Chapitre 5 : Architecture de la couche d'ingestion**
-
-**Adaptations Confluent Cloud:**
-
-**A. Ingestion via Confluent Tableflow (Recommandé)**[^7][^8]
-
-- Configuration en quelques clics: Topic → Iceberg
-- Évolution automatique de schéma avec Schema Registry
-- Maintenance automatique des tables (compaction, optimisation)
-- Conversion formats: Avro/JSON/Protobuf → Parquet
-- Intégration catalogues: AWS Glue, Snowflake Open Catalog
-
-**B. Ingestion via Apache Flink SQL (Streaming ETL)**[^6][^9]
-
-- Transformations temps réel avant Iceberg
-- Enrichissement de données avec jointures streaming
-- Pattern: Kafka → Flink SQL → Kafka enrichi → Tableflow → Iceberg
-- Cas d'usage: Nettoyage, agrégations, dénormalisation
-
-**C. Ingestion via Kafka Connect Iceberg Sink**[^10][^11][^5]
-
-- Alternative open-source auto-gérée
-- Exactly-once delivery semantics
-- Multi-table fan-out
-- Configuration manuelle vs. Tableflow managé
-- Coordination des commits et optimisation
-
-**Patterns d'ingestion spécifiques:**
-
-- **Haute fréquence** (>1000 événements/sec): Considérations compaction[^12]
-- **Change Data Capture (CDC)**: Matérialisation de streams CDC en tables Iceberg[^8]
-- **Multi-topics**: Fan-out vers plusieurs tables Iceberg[^11][^13]
-
-### **Chapitre 6 : Implémentation de la couche de catalogue**
-
-**Adaptations Confluent Cloud:**
-
-- **Built-in Iceberg REST Catalog** (Confluent Cloud)[^8]
-- **AWS Glue Catalog** (intégration native avec Tableflow)[^4][^7]
-- **Snowflake Open Catalog** (pour analytics Snowflake)[^3][^8]
-- Configuration de l'intégration catalogue avec Tableflow
-- Gestion des métadonnées pour données streaming haute vélocité
-- Sélection du catalogue selon votre stack analytique
-
-### **Chapitre 7 : Conception de la couche de fédération**
-
-**Adaptations Confluent Cloud:**
-
-- **Dremio** avec Tableflow pour requêtes fédérées Iceberg[^14]
-- **Trino** pour analytics interactives sur tables Iceberg[^15][^16]
-- **Starburst** avec intégration Confluent Tableflow[^17]
-- Requêtes sur données Kafka temps réel + Iceberg historique (vision unifiée)[^18]
-- Pattern: Query engine → Iceberg (Tableflow) → S3
-- Optimisation des requêtes pour données streaming
-
-### **Chapitre 8 : Compréhension de la couche de consommation**
-
-**Adaptations Confluent Cloud:**
-
-**A. Outils BI et Analytics**
-
-- **Snowflake**: Accès direct via Open Catalog[^3][^8]
-- **Amazon Athena**: Requêtes sur Iceberg via AWS Glue[^7]
-- **Databricks**: Intégration Unity Catalog (prochainement)[^8]
-- **Tableau, Power BI, Looker**: Via connecteurs SQL standards
-
-**B. Notebooks et environnements de développement**
-
-- **Jupyter Notebooks** avec Trino/Iceberg[^15]
-- **Spark Notebooks** pour analytics exploratoires
-- **Flink SQL** (Confluent Cloud) pour requêtes streaming continues[^19][^6]
-
-**C. Applications Analytics temps réel**
-
-- **Clickhouse, Pinot, Druid**: Pour analytics sub-seconde[^12]
-- Pattern hybride: Kafka (temps réel) + Iceberg (historique)[^18]
-- Considérations latence pour différents cas d'usage
+- **Structure des fichiers** : Metadata (`.json`), Manifest Lists (`.avro`), Manifests (`.avro`), Data Files (`.parquet`).
+- **Le cycle de vie d'un commit** : Isolation ACID et _Optimistic Concurrency_.
+- **Row-Level Ops** : Copy-on-Write (CoW) vs Merge-on-Read (MoR) - Trade-offs pour le streaming[^3].
+- **Le rôle critique du Catalogue** : Mécanisme de verrouillage et gestion de l'état.
 
 ---
 
-## **PARTIE 3 : OPÉRATION DE VOTRE LAKEHOUSE KAFKA-ICEBERG**
+## **PARTIE 2 : DESIGN & STRATÉGIE**
 
-### **Chapitre 9 : Maintenance d'un Lakehouse Iceberg streaming**
+### **Chapitre 3 : Modélisation de Données pour le Lakehouse**
 
-**Adaptations Confluent Cloud:**
+**Focus Design:**
 
-**A. Maintenance automatique avec Tableflow**[^8]
+- Audit des topics Kafka existants et mapping de schémas (Avro/Protobuf vers Iceberg).
+- **Stratégies de Partitionnement** : Identity, Transform, et le pouvoir du _Hidden Partitioning_[^4].
+- **Gestion de la cardinalité** : Prévention de l'explosion des partitions (ex: `bucket(user_id)`).
+- Évolution de Schéma vs Évolution de Partition (Support Tableflow vs Natif).
+- Planification de la transition : Streaming vs Batch.
 
-- Compaction automatique des small files
-- Optimisation layout fichiers Parquet
-- Gestion automatique de la rétention
-- Monitoring de la santé des tables
+### **Chapitre 4 : Architecture de Stockage & Catalogues**
 
-**B. Maintenance manuelle (Kafka Connect)**
+**Focus Infrastructure:**
 
-- Identification problèmes: Small files, metadata explosion[^12]
-- Jobs de compaction périodiques
-- Target file size: 256MB recommandé pour streaming[^12]
-- Stratégies de partitionnement optimales pour Kafka:
-  - **Time-series**: `PARTITIONED BY (days(event_time), bucket(8, user_id))`[^12]
-  - **Multi-tenant**: `PARTITIONED BY (tenant_id, days(event_time))`[^12]
+- **Stockage** : Amazon S3 (Tiered Storage) vs Confluent Managed Storage.
+  - Considérations de coûts et performance.
+- **Comparatif Catalogues** :
+  - AWS Glue (Intégration native Tableflow).
+  - Iceberg REST (Confluent Built-in).
+  - Snowflake Open Catalog.
+  - Project Nessie (Git-like semantics pour DataOps).
+- Impact du choix du catalogue sur la portabilité et le verrouillage architectural.
 
-**C. Optimisations spécifiques streaming**
+---
 
-- Compaction incrémentale (dernière heure uniquement)[^12]
-- Gestion données late-arriving
-- Trade-offs: Latence d'ingestion vs. taille de fichiers
-- Monitoring débit Kafka → Iceberg
+## **PARTIE 3 : PATTERNS D'INGESTION**
 
-### **Chapitre 10 : Opérationnalisation d'Apache Iceberg avec Confluent**
+### **Chapitre 5 : Ingestion via Confluent Tableflow**
 
-**Adaptations Confluent Cloud:**
+**Focus Simplicité & Limitations:**
 
-**A. Automatisation et orchestration**
+- Configuration "Zero-code" : Topic → Iceberg (Hands-on).
+- Évolution automatique de schéma avec Schema Registry.
+- Maintenance automatique gérée par Confluent (Compaction, Optimisation).
+- Limitations à connaître : Latence de propagation, support des suppressions, coûts.
 
-- Configuration alertes Confluent Cloud pour pipelines Tableflow
-- Monitoring métriques: Lag, débit, erreurs de conversion
-- Intégration avec outils monitoring (Datadog, Prometheus)[^20]
-- Automation via Terraform/IaC pour configuration Tableflow
+### **Chapitre 6 : Ingestion Avancée via Flink SQL**
 
-**B. Gouvernance et conformité**
+**Focus Transformations Complexes & CDC:**
 
-- Intégration Schema Registry pour gouvernance schéma[^8]
-- Rétention données: Kafka (court terme) vs. Iceberg (long terme)[^21]
-- Audit trails avec Iceberg snapshots et time-travel
-- Gestion GDPR: Suppression données via Iceberg deletes
+- Pattern : Kafka → Flink SQL (Deduplication/Enrichissement) → Iceberg.
+- **Gestion des Upserts et Deletes** en streaming (CDC).
+- Utilisation de Flink pour des jointures _stream-stream_ avant persistance.
+- **Alternative Self-Managed** : Kafka Connect Iceberg Sink.
+  - Contrôle granulaire des commits et multi-table fan-out.
 
-**C. Sécurité**
+---
 
-- IAM et encryption at-rest (S3)[^4]
-- Encryption in-transit (Kafka → Iceberg)
-- Access control au niveau catalogue (Glue, Snowflake)
-- Isolation multi-tenant dans Confluent Cloud
+## **PARTIE 4 : OPÉRATIONS & OPTIMISATIONS**
 
-**D. Monitoring et observabilité**
+### **Chapitre 7 : Maintenance et Performance**
 
-- KPIs critiques:
-  - Latence end-to-end (Kafka → Iceberg query)
-  - Taux d'erreurs conversion schéma
-  - Croissance stockage S3
-  - Performance requêtes analytiques
-- Dashboards opérationnels pour pipelines temps réel[^22]
-- Troubleshooting: Problèmes courants et résolutions
+**Techniques Avancées:**
 
-### **Chapitre 11 : Synergie Confluent Cloud, Apache Iceberg et Microsoft Fabric**
+- **Problème des "Small Files"** : Impact en streaming et stratégies de compaction (Bin-packing).
+- **Optimisation des Lectures** :
+  - Techniques de layout : `SORT`, `Z-ORDER` (Clustering multidimensionnel).
+  - Filtres probabilistes : Bloom Filters pour le pruning efficace.
+- Maintenance Hygiène : Expiration des snapshots (retention policy) et suppression des fichiers orphelins.
+
+### **Chapitre 8 : Gouvernance et Consommation**
+
+**Vision Unifiée:**
+
+**A. Gouvernance et Sécurité**
+
+- Intégration Schema Registry pour la gouvernance des données.
+- Lineage de bout en bout et Audit trails.
+- Gestion GDPR : "Right to be forgotten" via Iceberg Deletes.
+- Sécurité : IAM, RBAC au niveau Catalogue.
+
+**B. Couche de Consommation & Fédération**
+
+- **Outils BI** : Snowflake, Amazon Athena, Power BI.
+- **Moteurs de Fédération** : Trino, Dremio, Starburst (Requêtes sur données chaudes).
+- **Notebooks** : Jupyter, Spark pour l'exploration data science.
+- Architecture hybride : Requêtes sur données Kafka (Temps réel) + Iceberg (Historique).
+
+### **Chapitre 9 : Synergie Confluent Cloud, Apache Iceberg et Microsoft Fabric**
 
 **Adaptations Confluent Cloud & Microsoft Fabric:**
 
