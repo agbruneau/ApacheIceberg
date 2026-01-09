@@ -1,8 +1,9 @@
-Apache Iceber pour Architectes
+# Apache Iceberg pour Architectes
 
 ## **PARTIE 1 : LA VALEUR DU LAKEHOUSE APACHE ICEBERG**
 
 ### **Chapitre 1 - LE MONDE DU LAKEHOUSE APACHE ICEBERG**
+
 - 1.1 Qu'est-ce qu'un data lakehouse
   - 1.1.1 L'essor des entrepôts de données
   - 1.1.2 Le passage aux entrepôts de données cloud
@@ -29,6 +30,7 @@ Apache Iceber pour Architectes
 - 1.5 Résumé
 
 ### **Chapitre 2 - MISE EN PRATIQUE AVEC APACHE ICEBERG**
+
 - 2.1 Configuration d'un environnement Apache Iceberg
   - 2.1.1 Prérequis : Installer Docker
   - 2.1.2 Création du fichier Docker compose
@@ -54,6 +56,7 @@ Apache Iceber pour Architectes
 ## **PARTIE 2 : CONCEVOIR VOTRE ARCHITECTURE ICEBERG**
 
 ### **Chapitre 3 - PRÉPARER VOTRE PASSAGE À APACHE ICEBERG**
+
 - 3.1 Réalisation de l'audit de votre plateforme de données
   - 3.1.1 Qui sont les parties prenantes ?
   - 3.1.2 Que devez-vous demander aux parties prenantes ?
@@ -75,6 +78,7 @@ Apache Iceber pour Architectes
 - 3.5 Résumé
 
 ### **Chapitre 4 - SÉLECTION DE LA COUCHE DE STOCKAGE**
+
 - 4.1 Exigences de stockage
   - 4.1.1 Exigences de performance de récupération de fichiers
   - 4.1.2 Exigences de sécurité
@@ -106,6 +110,7 @@ Apache Iceber pour Architectes
 - 4.6 Résumé
 
 ### **Chapitre 5 - ARCHITECTURE DE LA COUCHE D'INGESTION**
+
 - 5.1 Exigences d'ingestion
   - 5.1.1 Débit d'ingestion et latence
   - 5.1.2 Fiabilité et tolérance aux pannes
@@ -139,6 +144,7 @@ Apache Iceber pour Architectes
 - 5.6 Résumé
 
 ### **Chapitre 6 - IMPLÉMENTATION DE LA COUCHE DE CATALOGUE**
+
 - 6.1 Le rôle du catalogue dans les lakehouses Apache Iceberg
   - 6.1.1 Responsabilités du catalogue
   - 6.1.2 Interactions du catalogue avec les moteurs de requête et de traitement
@@ -176,6 +182,7 @@ Apache Iceber pour Architectes
 - 6.6 Résumé
 
 ### **Chapitre 7 - CONCEPTION DE LA COUCHE DE FÉDÉRATION**
+
 - 7.1 Ce qu'est la fédération de données et pourquoi elle compte
   - 7.1.1 Cas d'usage et défis courants motivant les besoins de fédération
   - 7.1.2 Comment la fédération s'aligne avec l'agilité et l'accessibilité
@@ -210,6 +217,7 @@ Apache Iceber pour Architectes
 - 7.8 Résumé
 
 ### **Chapitre 8 - COMPRENDRE LA COUCHE DE CONSOMMATION**
+
 - 8.1 Revenir sur les avantages du lakehouse pour la consommation
 - 8.2 Connecter le lakehouse aux personnes
 - 8.3 Revenir sur les exigences de notre audit
@@ -245,18 +253,21 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 ## **Chapitre 9 - MAINTENIR UN LAKEHOUSE ICEBERG**
 
 ### 9.1 Problème : Fichiers de données sous-optimaux
+
 - 9.1.1 Petits fichiers
 - 9.1.2 Données mal colocalisées
 - 9.1.3 Prolifération des métadonnées
 - 9.1.4 Impacts de performance Merge-on-read (MOR)
 
 ### 9.2 Solution : Compaction
+
 - 9.2.1 Qu'est-ce que la compaction ?
 - 9.2.2 Taille de fichier cible
 - 9.2.3 Fichiers à inclure
 - 9.2.4 Utilisation de filtres pour délimiter la compaction
 
 ### 9.3 Gestion de l'empreinte de stockage et rétention des données
+
 - 9.3.1 Exécution de l'expiration des snapshots
 - 9.3.2 COW vs MOR : Implications pour la rétention des données
 - 9.3.3 Considérations réglementaires pour la suppression des données
@@ -264,17 +275,19 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 ### 9.4 Exploration des tables de métadonnées d'Apache Iceberg
 
 ### 9.5 Contrôles d'accès dans un lakehouse Iceberg
+
 - 9.5.1 Contrôles de la couche de stockage
 - 9.5.2 Contrôles au niveau du catalogue
 - 9.5.3 Contrôles d'accès au niveau du moteur
 
 ### 9.6 Résumé
 
-***
+---
 
 ## **Chapitre 10 - OPÉRATIONNALISER APACHE ICEBERG**
 
 ### 10.1 Orchestration du lakehouse
+
 - 10.1.1 Choix des outils et modèles d'orchestration
 - 10.1.2 Déclencheurs basés sur les métadonnées pour une maintenance proactive
 - 10.1.3 Politiques de maintenance par table
@@ -282,6 +295,7 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 - 10.1.5 Mise en pratique de l'orchestration
 
 ### 10.2 Audit du lakehouse
+
 - 10.2.1 Tirer parti de l'historique des snapshots pour le suivi des changements
 - 10.2.2 Utilisation du branchement et du marquage pour la gouvernance
 - 10.2.3 Implémentation des politiques de rétention des fichiers et snapshots
@@ -291,6 +305,7 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 - 10.2.7 Audit pratique avec Iceberg : Exemples de flux de travail
 
 ### 10.3 Récupération après sinistre dans le lakehouse
+
 - 10.3.1 Le rôle du catalogue de métadonnées dans la récupération après sinistre
 - 10.3.2 Protection contre la perte et la corruption des données
 - 10.3.3 Récupération multi-région et multi-environnement
@@ -302,11 +317,12 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 
 ### 10.4 Résumé
 
-***
+---
 
 ## **Chapitre 11 - L'ÉVOLUTION VERS LE STREAMING LAKEHOUSE**
 
 ### 11.1 De l'Architecture Lambda au Streaming Lakehouse
+
 - 11.1.1 Les limites de l'Architecture Lambda
   - 11.1.1.1 La couche de vitesse (Speed Layer)
   - 11.1.1.2 La couche de lot (Batch Layer)
@@ -320,6 +336,7 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
   - 11.1.3.3 Unification du stockage
 
 ### 11.2 Le Rôle de Confluent et Kafka dans l'Écosystème Moderne
+
 - 11.2.1 Kafka comme système nerveux central
 - 11.2.2 Plateforme de traitement et de gouvernance des données en mouvement
 - 11.2.3 Cas d'usage : Transformation architecturale des institutions financières
@@ -330,11 +347,12 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 
 ### 11.3 Résumé
 
-***
+---
 
 ## **Chapitre 12 - L'INTÉGRATION AVEC MICROSOFT FABRIC ET POWER BI**
 
 ### 12.1 OneLake Shortcuts et Virtualisation
+
 - 12.1.1 Concept de Shortcuts dans OneLake
   - 12.1.1.1 Montage de tables Iceberg externes sans copie de données
   - 12.1.1.2 Support des sources S3 et ADLS générées par Confluent/Snowflake
@@ -348,6 +366,7 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
   - 12.1.3.3 Cas spécifique : banques canadiennes et région Canada Central
 
 ### 12.2 Power BI Direct Lake : Latence et Performance
+
 - 12.2.1 Le mode Direct Lake comme rupture technologique
   - 12.2.1.1 Comparaison avec le mode Import et DirectQuery
   - 12.2.1.2 Lecture directe des fichiers Parquet par le moteur VertiPaq
@@ -361,15 +380,17 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 
 ### 12.3 Résumé
 
-***
+---
 
 ## **Chapitre 13 - CONTEXTE CANADIEN ET ÉTUDES DE CAS**
 
 ### 13.1 Introduction au contexte canadien
+
 - 13.1.1 Souveraineté numérique et modernisation des infrastructures
 - 13.1.2 Influence sur l'adoption des technologies de Streaming Lakehouse
 
 ### 13.2 Étude de Cas : Banque Royale du Canada (RBC)
+
 - 13.2.1 Contexte et défis initiaux
   - 13.2.1.1 Dépendance aux mainframes coûteux (MIPS)
   - 13.2.1.2 Difficulté à innover sur des données cloisonnées
@@ -384,6 +405,7 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
   - 13.2.3.4 Données souveraines hébergées au Canada
 
 ### 13.3 Étude de Cas : Bell Canada
+
 - 13.3.1 Contexte et défis
   - 13.3.1.1 Volumes massifs de logs hétérogènes
   - 13.3.1.2 Sources multiples : routeurs, box, antennes
@@ -398,6 +420,7 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
   - 13.3.3.4 Support du SOC (Security Operations Center)
 
 ### 13.4 Souveraineté des Données et Infrastructure Régionale
+
 - 13.4.1 Conformité et directives fédérales
   - 13.4.1.1 Stratégie infonuagique du gouvernement du Canada
   - 13.4.1.2 Exigences de résidence des données au pays
@@ -413,33 +436,146 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 
 ### 13.5 Résumé
 
-***
+---
 
-## **Chapitre 14 - CONCLUSION ET PERSPECTIVES 2026**
+## **Chapitre 14 - SÉCURITÉ, GOUVERNANCE ET CONFORMITÉ DU LAKEHOUSE**
 
-### 14.1 L'architecture de Streaming Lakehouse comme état de l'art
-- 14.1.1 Unification de Kafka, Iceberg et Fabric
-- 14.1.2 Concilier l'agilité du temps réel avec la rigueur de l'analytique transactionnelle
-- 14.1.3 Positionnement en 2025 dans la gestion de données moderne
+### 14.1 Fondements de la sécurité dans un Lakehouse Apache Iceberg
 
-### 14.2 Perspectives technologiques pour 2026
-- 14.2.1 L'émergence du "Diskless Kafka"
-  - 14.2.1.1 Kafka utilisant Iceberg/S3 comme stockage primaire
-  - 14.2.1.2 Élimination de la duplication sur disques locaux
-  - 14.2.1.3 Impact sur l'architecture et les performances
-- 14.2.2 Standardisation des catalogues via le protocole REST
-  - 14.2.2.1 Avantages de la standardisation
-  - 14.2.2.2 Interopérabilité accrue entre systèmes
+- 14.1.1 Modèles de menaces spécifiques aux architectures Lakehouse
+  - 14.1.1.1 Surface d'attaque distribuée (stockage, catalogue, moteurs)
+  - 14.1.1.2 Risques liés à l'accès multi-tenant
+  - 14.1.1.3 Vulnérabilités des pipelines d'ingestion
+- 14.1.2 Principes de défense en profondeur
+  - 14.1.2.1 Segmentation réseau et isolation
+  - 14.1.2.2 Principe du moindre privilège
+  - 14.1.2.3 Chiffrement au repos et en transit
+- 14.1.3 Architecture Zero Trust pour le Lakehouse
+  - 14.1.3.1 Authentification continue et contextuelle
+  - 14.1.3.2 Micro-segmentation des accès aux données
+  - 14.1.3.3 Validation des identités à chaque couche
 
-### 14.3 Implications stratégiques pour les organisations canadiennes
-- 14.3.1 Investissement technologique comme décision stratégique
-- 14.3.2 Bénéfices organisationnels
-  - 14.3.2.1 Innovation et compétitivité
-  - 14.3.2.2 Conformité réglementaire
-  - 14.3.2.3 Adaptation à une économie numérique accélérée
-- 14.3.3 Recommandations pour l'adoption
+### 14.2 Gouvernance des données à l'échelle entreprise
 
-### 14.4 Résumé final
+- 14.2.1 Catalogage et lignage des données
+  - 14.2.1.1 Métadonnées techniques vs métadonnées métier
+  - 14.2.1.2 Traçabilité end-to-end avec Apache Atlas et alternatives
+  - 14.2.1.3 Intégration du lignage dans les pipelines Iceberg
+- 14.2.2 Qualité des données et observabilité
+  - 14.2.2.1 Validation de schéma et contrats de données
+  - 14.2.2.2 Métriques de qualité automatisées (Great Expectations, Deequ)
+  - 14.2.2.3 Alertes et tableaux de bord de santé des données
+- 14.2.3 Gestion du cycle de vie des données
+  - 14.2.3.1 Classification automatique des données sensibles
+  - 14.2.3.2 Politiques de rétention et archivage
+  - 14.2.3.3 Suppression sécurisée et droit à l'oubli
+
+### 14.3 Conformité réglementaire et cadres légaux
+
+- 14.3.1 Réglementations canadiennes
+  - 14.3.1.1 LPRPDE (Loi sur la protection des renseignements personnels)
+  - 14.3.1.2 Loi 25 du Québec et implications pour les Lakehouses
+  - 14.3.1.3 Directives du BSIF pour les institutions financières
+  - 14.3.1.4 Exigences de résidence des données au Canada
+- 14.3.2 Réglementations internationales
+  - 14.3.2.1 RGPD/GDPR et transferts transfrontaliers
+  - 14.3.2.2 SOC 2 Type II et certifications de sécurité
+  - 14.3.2.3 PCI-DSS pour les données de paiement
+  - 14.3.2.4 HIPAA pour les données de santé
+- 14.3.3 Audit et preuve de conformité
+  - 14.3.3.1 Journalisation exhaustive des accès
+  - 14.3.3.2 Rapports automatisés pour les auditeurs
+  - 14.3.3.3 Démonstration de conformité via time-travel Iceberg
+
+### 14.4 Contrôles d'accès avancés
+
+- 14.4.1 RBAC, ABAC et contrôles hybrides
+  - 14.4.1.1 Modèles basés sur les rôles vs attributs
+  - 14.4.1.2 Politiques dynamiques selon le contexte
+  - 14.4.1.3 Intégration avec les systèmes d'identité d'entreprise (LDAP, Azure AD)
+- 14.4.2 Sécurité au niveau des lignes et colonnes
+  - 14.4.2.1 Row-Level Security (RLS) dans les moteurs de requête
+  - 14.4.2.2 Column-Level Security et masquage dynamique
+  - 14.4.2.3 Implémentation avec Dremio, Trino et Spark
+- 14.4.3 Tokenisation et anonymisation
+  - 14.4.3.1 Pseudonymisation réversible vs irréversible
+  - 14.4.3.2 Techniques de k-anonymat et differential privacy
+  - 14.4.3.3 Cas d'usage : données de test et environnements non-production
+
+### 14.5 Patterns d'architecture sécurisée
+
+- 14.5.1 Architecture multi-zone de sécurité
+  - 14.5.1.1 Zone raw, curated et consumption
+  - 14.5.1.2 Isolation des environnements sensibles
+  - 14.5.1.3 Data Clean Rooms pour le partage sécurisé
+- 14.5.2 Gestion des secrets et credentials
+  - 14.5.2.1 HashiCorp Vault, AWS Secrets Manager, Azure Key Vault
+  - 14.5.2.2 Rotation automatique des clés de chiffrement
+  - 14.5.2.3 Injection sécurisée dans les pipelines
+- 14.5.3 Détection et réponse aux incidents
+  - 14.5.3.1 SIEM et corrélation d'événements de sécurité
+  - 14.5.3.2 Détection d'anomalies d'accès aux données
+  - 14.5.3.3 Playbooks de réponse aux incidents data breach
+
+### 14.6 Résumé
+
+---
+
+## **Chapitre 15 - CONCLUSION FINALE ET PERSPECTIVES 2026-2030**
+
+### 15.1 L'architecture de Streaming Lakehouse comme état de l'art
+
+- 15.1.1 Unification de Kafka, Iceberg et Fabric
+- 15.1.2 Concilier l'agilité du temps réel avec la rigueur de l'analytique transactionnelle
+- 15.1.3 Positionnement en 2025-2026 dans la gestion de données moderne
+- 15.1.4 Maturité de l'écosystème et adoption enterprise
+
+### 15.2 Perspectives technologiques 2026-2028
+
+- 15.2.1 L'émergence du "Diskless Kafka"
+  - 15.2.1.1 Kafka utilisant Iceberg/S3 comme stockage primaire
+  - 15.2.1.2 Élimination de la duplication sur disques locaux
+  - 15.2.1.3 Impact sur l'architecture et les performances
+- 15.2.2 Standardisation des catalogues via le protocole REST
+  - 15.2.2.1 Avantages de la standardisation
+  - 15.2.2.2 Interopérabilité accrue entre systèmes
+- 15.2.3 Convergence des formats de table ouverts
+  - 15.2.3.1 Apache XTable et l'interopérabilité Delta/Iceberg/Hudi
+  - 15.2.3.2 Vers un standard unifié ?
+  - 15.2.3.3 Impact sur les stratégies de migration
+
+### 15.3 Horizons 2028-2030 : L'ère de l'Intelligence Artificielle
+
+- 15.3.1 Lakehouse et IA générative
+  - 15.3.1.1 Feature stores intégrés avec Iceberg
+  - 15.3.1.2 RAG (Retrieval-Augmented Generation) sur données Lakehouse
+  - 15.3.1.3 Gouvernance des données d'entraînement IA
+- 15.3.2 Automatisation et self-driving Lakehouse
+  - 15.3.2.1 Optimisation automatique des tables (auto-compaction, clustering)
+  - 15.3.2.2 Recommandations d'indexation basées sur l'IA
+  - 15.3.2.3 Détection proactive des anomalies de données
+- 15.3.3 Edge computing et Lakehouse distribué
+  - 15.3.3.1 Synchronisation edge-to-cloud
+  - 15.3.3.2 Traitement local avec consolidation centralisée
+  - 15.3.3.3 Cas d'usage IoT industriel et retail
+
+### 15.4 Implications stratégiques pour les organisations canadiennes
+
+- 15.4.1 Investissement technologique comme décision stratégique
+- 15.4.2 Bénéfices organisationnels
+  - 15.4.2.1 Innovation et compétitivité
+  - 15.4.2.2 Conformité réglementaire renforcée
+  - 15.4.2.3 Adaptation à une économie numérique accélérée
+- 15.4.3 Développement des compétences et talents
+  - 15.4.3.1 Formation des équipes aux technologies Lakehouse
+  - 15.4.3.2 Écosystème de partenaires et intégrateurs
+  - 15.4.3.3 Communautés open source au Canada
+- 15.4.4 Recommandations pour une adoption réussie
+  - 15.4.4.1 Approche incrémentale et proof-of-concept
+  - 15.4.4.2 Centre d'excellence Lakehouse
+  - 15.4.4.3 Métriques de succès et ROI
+
+### 15.5 Résumé final et appel à l'action
 
 ## **ANNEXE A : LES TABLES DE MÉTADONNÉES**
 
@@ -475,7 +611,7 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 
 ### A.16 Surveillance de la santé des tables avec les tables de métadonnées
 
-***
+---
 
 ## **ANNEXE B : PYTHON POUR APACHE ICEBERG**
 
@@ -495,27 +631,31 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 
 ### B.8 Résumé et meilleures pratiques
 
-***
+---
 
 ## **ANNEXE C : LA SPÉCIFICATION APACHE ICEBERG**
 
 ### C.1 Comprendre la spécification Iceberg
+
 - C.1.1 Qu'est-ce qu'une spécification de format de table ?
 - C.1.2 Pourquoi Iceberg formalise le comportement des tables
 - C.1.3 Évolution de la spécification : principes de versionnement et compatibilité
 
 ### C.2 Versions du format de table Iceberg
+
 - C.2.1 Version 1 : Fondation pour les tables analytiques
 - C.2.2 Version 2 : Suppressions au niveau des lignes et écritures plus strictes
 - C.2.3 Version 3 : Types étendus et capacités avancées
 - C.2.4 Version 4 : Performance, portabilité et préparation au temps réel
 
 ### C.3 Gestion des snapshots et métadonnées de table
+
 - C.3.1 Fichiers de métadonnées de table
 - C.3.2 Snapshots et la liste des manifestes
 - C.3.3 Numéros de séquence et concurrence optimiste
 
 ### C.4 La spécification REST Catalog
+
 - C.4.1 Aperçu et objectif
 - C.4.2 Configuration du catalogue et points de terminaison par défaut
 - C.4.3 Espaces de noms, tables et vues
@@ -524,11 +664,13 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 - C.4.6 Le point de terminaison de planification de scan
 
 ### C.5 Spécification du format de fichier Puffin
+
 - C.5.1 Qu'est-ce qu'un fichier Puffin ?
 - C.5.2 Stockage des métriques au niveau des colonnes et index personnalisés
 - C.5.3 Intégration avec les métadonnées de table Iceberg
 
 ### C.6 Compatibilité et migration
+
 - C.6.1 Lecture et écriture à travers les versions de format
 - C.6.2 Mise à niveau des tables vers des versions plus récentes de la spécification
 - C.6.3 Gestion de la compatibilité descendante en pratique
