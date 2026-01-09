@@ -240,7 +240,7 @@ Apache Iceber pour Architectes
 
 ## **PARTIE 3 : OPÉRER VOTRE LAKEHOUSE APACHE ICEBERG**
 
-Voici la structure complète des **chapitres 9 et 10** du livre "Architecting an Apache Iceberg Lakehouse" par Alex Merced:[1]
+Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre "Architecting an Apache Iceberg Lakehouse" par Alex Merced, avec les chapitres 11, 12, 13 et 14 basés sur le contenu du Livre Blanc sur le Streaming Lakehouse :[1]
 
 ## **Chapitre 9 - MAINTENIR UN LAKEHOUSE ICEBERG**
 
@@ -302,9 +302,144 @@ Voici la structure complète des **chapitres 9 et 10** du livre "Architecting an
 
 ### 10.4 Résumé
 
-Voici les **annexes A, B et C au complet** du livre "Architecting an Apache Iceberg Lakehouse" par Alex Merced:[1]
+***
+
+## **Chapitre 11 - L'ÉVOLUTION VERS LE STREAMING LAKEHOUSE**
+
+### 11.1 De l'Architecture Lambda au Streaming Lakehouse
+- 11.1.1 Les limites de l'Architecture Lambda
+  - 11.1.1.1 La couche de vitesse (Speed Layer)
+  - 11.1.1.2 La couche de lot (Batch Layer)
+  - 11.1.1.3 Complexité opérationnelle et divergence des données
+- 11.1.2 L'avènement de l'Architecture Kappa
+  - 11.1.2.1 Traitement unifié par flux
+  - 11.1.2.2 Limitations des moteurs de streaming purs
+- 11.1.3 Le Streaming Lakehouse : La Synthèse
+  - 11.1.3.1 Ingestion en temps réel
+  - 11.1.3.2 Correction transactionnelle avec propriétés ACID
+  - 11.1.3.3 Unification du stockage
+
+### 11.2 Le Rôle de Confluent et Kafka dans l'Écosystème Moderne
+- 11.2.1 Kafka comme système nerveux central
+- 11.2.2 Plateforme de traitement et de gouvernance des données en mouvement
+- 11.2.3 Cas d'usage : Transformation architecturale des institutions financières
+  - 11.2.3.1 Banque Royale du Canada (RBC) : Passage du mainframe à l'architecture événementielle
+  - 11.2.3.2 Réduction de la latence de détection des anomalies
+- 11.2.4 Découplage des systèmes producteurs et consommateurs
+- 11.2.5 Exemple Shopify : Traitement de milliards d'événements quotidiens
+
+### 11.3 Résumé
 
 ***
+
+## **Chapitre 12 - L'INTÉGRATION AVEC MICROSOFT FABRIC ET POWER BI**
+
+### 12.1 OneLake Shortcuts et Virtualisation
+- 12.1.1 Concept de Shortcuts dans OneLake
+  - 12.1.1.1 Montage de tables Iceberg externes sans copie de données
+  - 12.1.1.2 Support des sources S3 et ADLS générées par Confluent/Snowflake
+- 12.1.2 Virtualisation Bidirectionnelle
+  - 12.1.2.1 Couche de traduction de métadonnées basée sur Apache XTable
+  - 12.1.2.2 Mapping dynamique des métadonnées Iceberg vers Delta Lake
+  - 12.1.2.3 Accessibilité via moteurs Spark de Fabric et SQL Endpoint
+- 12.1.3 Contraintes et considérations
+  - 12.1.3.1 Contrainte de région : alignement géographique requis
+  - 12.1.3.2 Impact sur les coûts d'egress et les performances
+  - 12.1.3.3 Cas spécifique : banques canadiennes et région Canada Central
+
+### 12.2 Power BI Direct Lake : Latence et Performance
+- 12.2.1 Le mode Direct Lake comme rupture technologique
+  - 12.2.1.1 Comparaison avec le mode Import et DirectQuery
+  - 12.2.1.2 Lecture directe des fichiers Parquet par le moteur VertiPaq
+- 12.2.2 Impact et capacités
+  - 12.2.2.1 Visualisation de volumes massifs (Pétaoctets)
+  - 12.2.2.2 Performances interactives proches du mode Import
+- 12.2.3 Latence de synchronisation
+  - 12.2.3.1 Processus de synchronisation Kafka → Iceberg → OneLake → Power BI
+  - 12.2.3.2 Variation de latence selon la configuration de cache
+  - 12.2.3.3 Considérations pour tableaux de bord opérationnels temps réel
+
+### 12.3 Résumé
+
+***
+
+## **Chapitre 13 - CONTEXTE CANADIEN ET ÉTUDES DE CAS**
+
+### 13.1 Introduction au contexte canadien
+- 13.1.1 Souveraineté numérique et modernisation des infrastructures
+- 13.1.2 Influence sur l'adoption des technologies de Streaming Lakehouse
+
+### 13.2 Étude de Cas : Banque Royale du Canada (RBC)
+- 13.2.1 Contexte et défis initiaux
+  - 13.2.1.1 Dépendance aux mainframes coûteux (MIPS)
+  - 13.2.1.2 Difficulté à innover sur des données cloisonnées
+- 13.2.2 Solution architecturale
+  - 13.2.2.1 Utilisation de Kafka pour "découper le monolithe" (Monolith Slicing)
+  - 13.2.2.2 Capture en temps réel des transactions
+  - 13.2.2.3 Diffusion vers applications aval sans re-solliciter le mainframe
+- 13.2.3 Résultats et bénéfices
+  - 13.2.3.1 Réduction drastique des coûts MIPS
+  - 13.2.3.2 Accélération de la détection de fraude (de plusieurs semaines à quelques secondes)
+  - 13.2.3.3 Historisation avec Iceberg pour l'entraînement de modèles IA
+  - 13.2.3.4 Données souveraines hébergées au Canada
+
+### 13.3 Étude de Cas : Bell Canada
+- 13.3.1 Contexte et défis
+  - 13.3.1.1 Volumes massifs de logs hétérogènes
+  - 13.3.1.2 Sources multiples : routeurs, box, antennes
+- 13.3.2 Solution mise en place
+  - 13.3.2.1 Ingestion via Kafka
+  - 13.3.2.2 Normalisation des logs
+  - 13.3.2.3 Passage à une architecture Lakehouse
+- 13.3.3 Bénéfices opérationnels
+  - 13.3.3.1 Conservation à long terme à faible coût (conformité légale)
+  - 13.3.3.2 Stockage objet économique
+  - 13.3.3.3 Requêtes SQL rapides pour investigation d'incidents de sécurité
+  - 13.3.3.4 Support du SOC (Security Operations Center)
+
+### 13.4 Souveraineté des Données et Infrastructure Régionale
+- 13.4.1 Conformité et directives fédérales
+  - 13.4.1.1 Stratégie infonuagique du gouvernement du Canada
+  - 13.4.1.2 Exigences de résidence des données au pays
+- 13.4.2 Comparaison régionale : AWS Canada vs US East
+  - 13.4.2.1 AWS Canada Central (ca-central-1) vs US East (N. Virginia)
+  - 13.4.2.2 Coûts et considérations financières (+10-15% pour la région canadienne)
+  - 13.4.2.3 Déploiement de services de pointe
+  - 13.4.2.4 Mandat pour données PII bancaires et gouvernementales
+- 13.4.3 Analyse de latence
+  - 13.4.3.1 Latence réseau pour utilisateurs basés à Toronto/Montréal
+  - 13.4.3.2 Comparaison ca-central-1 (<10ms) vs Virginie (~20-30ms)
+  - 13.4.3.3 Impact sur applications interactives Power BI Direct Lake
+
+### 13.5 Résumé
+
+***
+
+## **Chapitre 14 - CONCLUSION ET PERSPECTIVES 2026**
+
+### 14.1 L'architecture de Streaming Lakehouse comme état de l'art
+- 14.1.1 Unification de Kafka, Iceberg et Fabric
+- 14.1.2 Concilier l'agilité du temps réel avec la rigueur de l'analytique transactionnelle
+- 14.1.3 Positionnement en 2025 dans la gestion de données moderne
+
+### 14.2 Perspectives technologiques pour 2026
+- 14.2.1 L'émergence du "Diskless Kafka"
+  - 14.2.1.1 Kafka utilisant Iceberg/S3 comme stockage primaire
+  - 14.2.1.2 Élimination de la duplication sur disques locaux
+  - 14.2.1.3 Impact sur l'architecture et les performances
+- 14.2.2 Standardisation des catalogues via le protocole REST
+  - 14.2.2.1 Avantages de la standardisation
+  - 14.2.2.2 Interopérabilité accrue entre systèmes
+
+### 14.3 Implications stratégiques pour les organisations canadiennes
+- 14.3.1 Investissement technologique comme décision stratégique
+- 14.3.2 Bénéfices organisationnels
+  - 14.3.2.1 Innovation et compétitivité
+  - 14.3.2.2 Conformité réglementaire
+  - 14.3.2.3 Adaptation à une économie numérique accélérée
+- 14.3.3 Recommandations pour l'adoption
+
+### 14.4 Résumé final
 
 ## **ANNEXE A : LES TABLES DE MÉTADONNÉES**
 
