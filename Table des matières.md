@@ -1,124 +1,124 @@
 Voici la table des matières complète du livre **"Architecting an Apache Iceberg Lakehouse"** par Alex Merced :[1]
 
-## **PART 1: THE VALUE OF THE APACHE ICEBERG LAKEHOUSE**
+## **PARTIE 1 : LA VALEUR DU LAKEHOUSE APACHE ICEBERG**
 
-### **Chapitre 1 - THE WORLD OF THE APACHE ICEBERG LAKEHOUSE**
-- 1.1 What is a data lakehouse
-  - 1.1.1 The rise of data warehouses
-  - 1.1.2 The move to cloud data warehouses
-  - 1.1.3 The data lake and the Hadoop era
-  - 1.1.4 Apache Iceberg: The key to the data lakehouse
-  - 1.1.5 The data lakehouse: the best of both worlds
-- 1.2 What is Apache Iceberg?
-  - 1.2.1 The need for a table format
-  - 1.2.2 How Apache Iceberg manages metadata
-  - 1.2.3 Key features of Apache Iceberg
-  - 1.2.4 Apache Iceberg as an open-source standard
-- 1.3 The benefits of Apache Iceberg
-  - 1.3.1 ACID transactions
-  - 1.3.2 Table evolution
-  - 1.3.3 Time travel & snapshot-based queries
-  - 1.3.4 Hidden partitioning for reduced accidental full-table scans
-  - 1.3.5 Cost efficiency & optimized query performance
-- 1.4 The components of an Apache Iceberg lakehouse
-  - 1.4.1 The storage layer: The foundation of your lakehouse
-  - 1.4.2 The ingestion layer: Feeding data into Iceberg tables
-  - 1.4.3 The catalog layer: The entry point to your lakehouse
-  - 1.4.4 The federation layer: Modeling & accelerating data
-  - 1.4.5 The consumption layer: Delivering value to the business
-- 1.5 Summary
+### **Chapitre 1 - LE MONDE DU LAKEHOUSE APACHE ICEBERG**
+- 1.1 Qu'est-ce qu'un data lakehouse
+  - 1.1.1 L'essor des entrepôts de données
+  - 1.1.2 Le passage aux entrepôts de données cloud
+  - 1.1.3 Le data lake et l'ère Hadoop
+  - 1.1.4 Apache Iceberg : La clé du data lakehouse
+  - 1.1.5 Le data lakehouse : le meilleur des deux mondes
+- 1.2 Qu'est-ce qu'Apache Iceberg ?
+  - 1.2.1 Le besoin d'un format de table
+  - 1.2.2 Comment Apache Iceberg gère les métadonnées
+  - 1.2.3 Caractéristiques clés d'Apache Iceberg
+  - 1.2.4 Apache Iceberg en tant que standard open-source
+- 1.3 Les avantages d'Apache Iceberg
+  - 1.3.1 Transactions ACID
+  - 1.3.2 Évolution des tables
+  - 1.3.3 Voyage dans le temps et requêtes basées sur les snapshots
+  - 1.3.4 Partitionnement masqué pour réduire les scans complets accidentels de table
+  - 1.3.5 Efficacité des coûts et performance optimisée des requêtes
+- 1.4 Les composants d'un lakehouse Apache Iceberg
+  - 1.4.1 La couche de stockage : Les fondations de votre lakehouse
+  - 1.4.2 La couche d'ingestion : Alimenter les tables Iceberg en données
+  - 1.4.3 La couche de catalogue : Le point d'entrée de votre lakehouse
+  - 1.4.4 La couche de fédération : Modélisation et accélération des données
+  - 1.4.5 La couche de consommation : Apporter de la valeur à l'entreprise
+- 1.5 Résumé
 
-### **Chapitre 2 - HANDS-ON WITH APACHE ICEBERG**
-- 2.1 Setting up an Apache Iceberg environment
-  - 2.1.1 Prerequisites: Install Docker
-  - 2.1.2 Creating the Docker compose file
-  - 2.1.3 Running the environment
-  - 2.1.4 Accessing the services
-- 2.2 Creating Iceberg tables in Spark
-  - 2.2.1 Populating the PostgreSQL database
-  - 2.2.2 Starting the Apache Spark environment
-  - 2.2.3 Configuring Apache Spark for Iceberg
-  - 2.2.4 Loading data from PostgreSQL into Iceberg
-  - 2.2.5 Verifying data storage in MinIO
-- 2.3 Reading Iceberg tables in Dremio
-  - 2.3.1 Starting Dremio
-  - 2.3.2 Connecting Dremio to the Nessie Catalog
-  - 2.3.3 Querying Iceberg tables in Dremio
-- 2.4 Creating a BI dashboard from your Iceberg tables
-  - 2.4.1 Starting Apache Superset
-  - 2.4.2 Connecting Superset to Dremio
-  - 2.4.3 Creating a dataset from Iceberg tables
-  - 2.4.4 Building charts and dashboards
-- 2.5 Summary
+### **Chapitre 2 - MISE EN PRATIQUE AVEC APACHE ICEBERG**
+- 2.1 Configuration d'un environnement Apache Iceberg
+  - 2.1.1 Prérequis : Installer Docker
+  - 2.1.2 Création du fichier Docker compose
+  - 2.1.3 Exécution de l'environnement
+  - 2.1.4 Accès aux services
+- 2.2 Création de tables Iceberg dans Spark
+  - 2.2.1 Peuplement de la base de données PostgreSQL
+  - 2.2.2 Démarrage de l'environnement Apache Spark
+  - 2.2.3 Configuration d'Apache Spark pour Iceberg
+  - 2.2.4 Chargement des données de PostgreSQL dans Iceberg
+  - 2.2.5 Vérification du stockage des données dans MinIO
+- 2.3 Lecture des tables Iceberg dans Dremio
+  - 2.3.1 Démarrage de Dremio
+  - 2.3.2 Connexion de Dremio au catalogue Nessie
+  - 2.3.3 Interrogation des tables Iceberg dans Dremio
+- 2.4 Création d'un tableau de bord BI à partir de vos tables Iceberg
+  - 2.4.1 Démarrage d'Apache Superset
+  - 2.4.2 Connexion de Superset à Dremio
+  - 2.4.3 Création d'un jeu de données à partir des tables Iceberg
+  - 2.4.4 Construction de graphiques et tableaux de bord
+- 2.5 Résumé
 
-## **PART 2: DESIGNING YOUR ICEBERG ARCHITECTURE**
+## **PARTIE 2 : CONCEVOIR VOTRE ARCHITECTURE ICEBERG**
 
-### **Chapitre 3 - PREPARING FOR YOUR MOVE TO APACHE ICEBERG**
-- 3.1 Conducting your data platform audit
-  - 3.1.1 Who are the stakeholders?
-  - 3.1.2 What should you ask stakeholders?
-  - 3.1.3 Conducting a technological audit
-- 3.2 Hamerliwa Bank's audit in action
-  - 3.2.1 Hamerliwa Bank interviews their stakeholders
-  - 3.2.2 Hamerliwa Bank audits its technology
-  - 3.2.3 Hamerliwa Bank summarizes its audit findings
-- 3.3 From audit to requirements: Laying the foundation for design
-  - 3.3.1 Defining storage requirements
-  - 3.3.2 Defining ingestion requirements
-  - 3.3.3 Defining catalog requirements
-  - 3.3.4 Defining federation requirements
-  - 3.3.5 Defining consumption requirements
-  - 3.3.6 Hamerliwa Bank establishes its requirements
-- 3.4 Architectural plan and road show
-  - 3.4.1 Hamerliwa Bank creates its architectural plan
-  - 3.4.2 Hamerliwa Bank conducts a road show
-- 3.5 Summary
+### **Chapitre 3 - PRÉPARER VOTRE PASSAGE À APACHE ICEBERG**
+- 3.1 Réalisation de l'audit de votre plateforme de données
+  - 3.1.1 Qui sont les parties prenantes ?
+  - 3.1.2 Que devez-vous demander aux parties prenantes ?
+  - 3.1.3 Réalisation d'un audit technologique
+- 3.2 L'audit de la Banque Hamerliwa en action
+  - 3.2.1 La Banque Hamerliwa interviewe ses parties prenantes
+  - 3.2.2 La Banque Hamerliwa audite sa technologie
+  - 3.2.3 La Banque Hamerliwa résume les résultats de son audit
+- 3.3 De l'audit aux exigences : Poser les fondations de la conception
+  - 3.3.1 Définition des exigences de stockage
+  - 3.3.2 Définition des exigences d'ingestion
+  - 3.3.3 Définition des exigences de catalogue
+  - 3.3.4 Définition des exigences de fédération
+  - 3.3.5 Définition des exigences de consommation
+  - 3.3.6 La Banque Hamerliwa établit ses exigences
+- 3.4 Plan architectural et présentation itinérante
+  - 3.4.1 La Banque Hamerliwa crée son plan architectural
+  - 3.4.2 La Banque Hamerliwa effectue une présentation itinérante
+- 3.5 Résumé
 
-### **Chapitre 4 - SELECTING THE STORAGE LAYER**
-- 4.1 Storage requirements
-  - 4.1.1 File retrieval performance requirements
-  - 4.1.2 Security requirements
-  - 4.1.3 Integrity requirements
-  - 4.1.4 Cost and operational overhead requirements
-- 4.2 Block vs object
-  - 4.2.1 Block storage
-  - 4.2.2 Object storage
-- 4.3 The standards in the storage layer
+### **Chapitre 4 - SÉLECTION DE LA COUCHE DE STOCKAGE**
+- 4.1 Exigences de stockage
+  - 4.1.1 Exigences de performance de récupération de fichiers
+  - 4.1.2 Exigences de sécurité
+  - 4.1.3 Exigences d'intégrité
+  - 4.1.4 Exigences de coût et de surcharge opérationnelle
+- 4.2 Stockage par blocs vs objet
+  - 4.2.1 Stockage par blocs
+  - 4.2.2 Stockage objet
+- 4.3 Les standards dans la couche de stockage
   - 4.3.1 Apache Parquet
-  - 4.3.2 The S3 API
-- 4.4 Storage solutions
-  - 4.4.1 Vendor Comparison Summary
+  - 4.3.2 L'API S3
+- 4.4 Solutions de stockage
+  - 4.4.1 Résumé de comparaison des fournisseurs
   - 4.4.2 Hadoop (HDFS)
   - 4.4.3 Amazon S3
   - 4.4.4 Google Cloud Storage
-  - 4.4.5 Azure Blob Storage and ADLS
+  - 4.4.5 Azure Blob Storage et ADLS
   - 4.4.6 MiniO
   - 4.4.7 Ceph
   - 4.4.8 NetApp StorageGRID
   - 4.4.9 Pure Storage
   - 4.4.10 Dell ECS
   - 4.4.11 Wasabi
-- 4.5 Selecting based on requirements
-  - 4.5.1 Performance requirements
-  - 4.5.2 Security requirements
-  - 4.5.3 Integrity requirements
-  - 4.5.4 Cost and operational requirements
-- 4.6 Summary
+- 4.5 Sélection basée sur les exigences
+  - 4.5.1 Exigences de performance
+  - 4.5.2 Exigences de sécurité
+  - 4.5.3 Exigences d'intégrité
+  - 4.5.4 Exigences de coût et opérationnelles
+- 4.6 Résumé
 
-### **Chapitre 5 - ARCHITECTING THE INGESTION LAYER**
-- 5.1 Ingestion requirements
-  - 5.1.1 Ingestion throughput and latency
-  - 5.1.2 Reliability and fault tolerance
-  - 5.1.3 Schema management and evolution
-  - 5.1.4 Operational complexity and maintainability
-- 5.2 Ingestion models and architectures
-  - 5.2.1 Batch ingestion
-  - 5.2.2 Micro-batch and incremental ingestion
-  - 5.2.3 Streaming ingestion
-- 5.3 How Iceberg manages writes
-  - 5.3.1 Write semantics in Iceberg
-  - 5.3.2 Commit protocols and conflict handling
-- 5.4 Tools and frameworks for ingestion
+### **Chapitre 5 - ARCHITECTURE DE LA COUCHE D'INGESTION**
+- 5.1 Exigences d'ingestion
+  - 5.1.1 Débit d'ingestion et latence
+  - 5.1.2 Fiabilité et tolérance aux pannes
+  - 5.1.3 Gestion et évolution du schéma
+  - 5.1.4 Complexité opérationnelle et maintenabilité
+- 5.2 Modèles et architectures d'ingestion
+  - 5.2.1 Ingestion par lots
+  - 5.2.2 Ingestion micro-batch et incrémentale
+  - 5.2.3 Ingestion en streaming
+- 5.3 Comment Iceberg gère les écritures
+  - 5.3.1 Sémantique d'écriture dans Iceberg
+  - 5.3.2 Protocoles de commit et gestion des conflits
+- 5.4 Outils et frameworks pour l'ingestion
   - 5.4.1 Apache Spark
   - 5.4.2 Apache Flink
   - 5.4.3 Apache NiFi
@@ -127,32 +127,32 @@ Voici la table des matières complète du livre **"Architecting an Apache Iceber
   - 5.4.6 Airbyte
   - 5.4.7 Confluent
   - 5.4.8 Redpanda
-  - 5.4.9 Cloud-native ingestion services
-  - 5.4.10 Tool selection considerations
-- 5.5 Applying ingestion requirements in context
-  - 5.5.1 Prioritizing low latency
-  - 5.5.2 Managing high throughput
-  - 5.5.3 Supporting complex transformations
-  - 5.5.4 Handling schema evolution
-  - 5.5.5 Balancing operational overhead
-  - 5.5.6 Considering existing cloud environments
-- 5.6 Summary
+  - 5.4.9 Services d'ingestion cloud-native
+  - 5.4.10 Considérations de sélection d'outils
+- 5.5 Application des exigences d'ingestion en contexte
+  - 5.5.1 Prioriser la faible latence
+  - 5.5.2 Gérer le haut débit
+  - 5.5.3 Prendre en charge les transformations complexes
+  - 5.5.4 Gérer l'évolution du schéma
+  - 5.5.5 Équilibrer la surcharge opérationnelle
+  - 5.5.6 Considérer les environnements cloud existants
+- 5.6 Résumé
 
-### **Chapitre 6 - IMPLEMENTING THE CATALOG LAYER**
-- 6.1 The role of the catalog in Apache Iceberg lakehouses
-  - 6.1.1 Responsibilities of the catalog
-  - 6.1.2 Catalog interactions with query and processing engines
-- 6.2 Evaluating catalog requirements
-  - 6.2.1 Performance, availability, and scale
-  - 6.2.2 Metadata governance and lineage
-  - 6.2.3 Security and compliance
-  - 6.2.4 Deployment flexibility and ecosystem compatibility
-  - 6.2.5 Cost and operational overhead
-  - 6.2.6 Catalog federation and mesh architectures
-- 6.3 Apache Iceberg REST Catalog Spec
-  - 6.3.1 Before the Apache Iceberg REST spec
-  - 6.3.2 The solution
-- 6.4 Catalog options: Exploring the ecosystem
+### **Chapitre 6 - IMPLÉMENTATION DE LA COUCHE DE CATALOGUE**
+- 6.1 Le rôle du catalogue dans les lakehouses Apache Iceberg
+  - 6.1.1 Responsabilités du catalogue
+  - 6.1.2 Interactions du catalogue avec les moteurs de requête et de traitement
+- 6.2 Évaluation des exigences du catalogue
+  - 6.2.1 Performance, disponibilité et échelle
+  - 6.2.2 Gouvernance et traçabilité des métadonnées
+  - 6.2.3 Sécurité et conformité
+  - 6.2.4 Flexibilité de déploiement et compatibilité avec l'écosystème
+  - 6.2.5 Coût et surcharge opérationnelle
+  - 6.2.6 Fédération de catalogues et architectures mesh
+- 6.3 Spécification Apache Iceberg REST Catalog
+  - 6.3.1 Avant la spécification Apache Iceberg REST
+  - 6.3.2 La solution
+- 6.4 Options de catalogue : Exploration de l'écosystème
   - 6.4.1 Hadoop Catalog
   - 6.4.2 Hive Catalog
   - 6.4.3 JDBC Catalog
@@ -164,185 +164,185 @@ Voici la table des matières complète du livre **"Architecting an Apache Iceber
   - 6.4.9 Dremio Catalog
   - 6.4.10 Snowflake Open Catalog
   - 6.4.11 Databricks Unity Catalog
-- 6.5 Choosing the right catalog: Evaluating options through scenarios
-  - 6.5.1 Scenario: A mid-sized data team migrating from Hive
-  - 6.5.2 Scenario: A rapidly scaling cloud-native startup
-  - 6.5.3 Scenario: A multinational enterprise with strict data governance
-  - 6.5.4 Scenario: SaaS startup prioritizing operational simplicity
-  - 6.5.5 Scenario: A large enterprise with multi-cloud and federated governance needs
-  - 6.5.6 Scenario: Financial firm requiring daily environment cloning for stress testing
-  - 6.5.7 Scenario: Phased Iceberg migration with query federation across legacy systems
-  - 6.5.8 Scenario: Lightweight lakehouse adoption with Hadoop catalog and Python
-- 6.6 Summary
+- 6.5 Choisir le bon catalogue : Évaluer les options à travers des scénarios
+  - 6.5.1 Scénario : Une équipe de données de taille moyenne migrant depuis Hive
+  - 6.5.2 Scénario : Une startup cloud-native en croissance rapide
+  - 6.5.3 Scénario : Une entreprise multinationale avec une gouvernance stricte des données
+  - 6.5.4 Scénario : Une startup SaaS priorisant la simplicité opérationnelle
+  - 6.5.5 Scénario : Une grande entreprise avec des besoins multi-cloud et de gouvernance fédérée
+  - 6.5.6 Scénario : Entreprise financière nécessitant un clonage quotidien d'environnement pour les tests de stress
+  - 6.5.7 Scénario : Migration Iceberg progressive avec fédération de requêtes à travers les systèmes legacy
+  - 6.5.8 Scénario : Adoption légère du lakehouse avec catalogue Hadoop et Python
+- 6.6 Résumé
 
-### **Chapitre 7 - DESIGNING THE FEDERATION LAYER**
-- 7.1 What data federation is and why it matters
-  - 7.1.1 Common use cases and challenges driving federation needs
-  - 7.1.2 How federation aligns with agility and accessibility
-- 7.2 Key requirements for federation
-  - 7.2.1 Supporting diverse data sources without duplication
-  - 7.2.2 Ensuring consistent semantics and business logic
-  - 7.2.3 Providing seamless connectivity for analytics tools
-  - 7.2.4 Introducing Dremio and Trino
+### **Chapitre 7 - CONCEPTION DE LA COUCHE DE FÉDÉRATION**
+- 7.1 Ce qu'est la fédération de données et pourquoi elle compte
+  - 7.1.1 Cas d'usage et défis courants motivant les besoins de fédération
+  - 7.1.2 Comment la fédération s'aligne avec l'agilité et l'accessibilité
+- 7.2 Exigences clés pour la fédération
+  - 7.2.1 Prendre en charge des sources de données diverses sans duplication
+  - 7.2.2 Assurer une sémantique et une logique métier cohérentes
+  - 7.2.3 Fournir une connectivité transparente pour les outils d'analyse
+  - 7.2.4 Introduction à Dremio et Trino
 - 7.3 Dremio
-  - 7.3.1 Dremio architecture
-  - 7.3.2 Dremio's connector ecosystem and Iceberg-centric focus
-  - 7.3.3 Dremio's performance enhancements
+  - 7.3.1 Architecture de Dremio
+  - 7.3.2 Écosystème de connecteurs de Dremio et focus centré sur Iceberg
+  - 7.3.3 Améliorations de performance de Dremio
 - 7.4 Trino
-  - 7.4.1 Modular architecture for wide-source support
-  - 7.4.2 Flexibility and configurability for complex environments
-  - 7.4.3 Community-led evolution and vendor extensions
-  - 7.4.4 Semantic layer considerations in Trino
-- 7.5 Deployment models
-  - 7.5.1 Deployment with Dremio
-  - 7.5.2 Deployment with Trino
-- 7.6 Federation platform decision scenarios
-  - 7.6.1 Fragmented multi-source environment: Trino for connector breadth
-  - 7.6.2 Building a native Iceberg lakehouse: Dremio for Iceberg-native features
-  - 7.6.3 Empowering business users with UI and governed datasets: Dremio
-  - 7.6.4 Lightweight querying of Hudi datasets: Trino via AWS Athena
-  - 7.6.5 On-prem Cloudera modernization: Trino replacing Impala for performance
-  - 7.6.6 Hybrid cloud Iceberg strategy: Dremio bridging on-prem and ADLS
-- 7.7 Federation Alternatives
-  - 7.7.1 Virtualization via shortcuts in OneLake
-  - 7.7.2 AI-native data virtualization with Spice.ai
-  - 7.7.3 Choosing the right fit
-- 7.8 Summary
+  - 7.4.1 Architecture modulaire pour la prise en charge de nombreuses sources
+  - 7.4.2 Flexibilité et configurabilité pour des environnements complexes
+  - 7.4.3 Évolution dirigée par la communauté et extensions de fournisseurs
+  - 7.4.4 Considérations de couche sémantique dans Trino
+- 7.5 Modèles de déploiement
+  - 7.5.1 Déploiement avec Dremio
+  - 7.5.2 Déploiement avec Trino
+- 7.6 Scénarios de décision de plateforme de fédération
+  - 7.6.1 Environnement multi-sources fragmenté : Trino pour la largeur des connecteurs
+  - 7.6.2 Construction d'un lakehouse Iceberg natif : Dremio pour les fonctionnalités Iceberg natives
+  - 7.6.3 Autonomiser les utilisateurs métier avec l'interface utilisateur et les jeux de données gouvernés : Dremio
+  - 7.6.4 Interrogation légère des jeux de données Hudi : Trino via AWS Athena
+  - 7.6.5 Modernisation Cloudera on-prem : Trino remplaçant Impala pour les performances
+  - 7.6.6 Stratégie Iceberg cloud hybride : Dremio reliant on-prem et ADLS
+- 7.7 Alternatives de fédération
+  - 7.7.1 Virtualisation via les raccourcis dans OneLake
+  - 7.7.2 Virtualisation de données native IA avec Spice.ai
+  - 7.7.3 Choisir la bonne solution
+- 7.8 Résumé
 
-### **Chapitre 8 - UNDERSTANDING THE CONSUMPTION LAYER**
-- 8.1 Revisiting the benefits of the lakehouse for consumption
-- 8.2 Connecting the lakehouse to the people
-- 8.3 Revisiting requirements from our audit
-  - 8.3.1 Interpreting requirements for consumption
-  - 8.3.2 Requirements for BI tools
-  - 8.3.3 Requirements for interactive notebook environments
-  - 8.3.4 Requirements for AI and specialized data consumption tools
-- 8.4 Open interfaces for seamless consumption
-  - 8.4.1 JDBC and ODBC
+### **Chapitre 8 - COMPRENDRE LA COUCHE DE CONSOMMATION**
+- 8.1 Revenir sur les avantages du lakehouse pour la consommation
+- 8.2 Connecter le lakehouse aux personnes
+- 8.3 Revenir sur les exigences de notre audit
+  - 8.3.1 Interprétation des exigences pour la consommation
+  - 8.3.2 Exigences pour les outils BI
+  - 8.3.3 Exigences pour les environnements de notebooks interactifs
+  - 8.3.4 Exigences pour l'IA et les outils spécialisés de consommation de données
+- 8.4 Interfaces ouvertes pour une consommation transparente
+  - 8.4.1 JDBC et ODBC
   - 8.4.2 Arrow Flight
   - 8.4.3 Model Context Protocol (MCP)
-- 8.5 Business intelligence tools in the lakehouse
-  - 8.5.1 Open source BI tools
-  - 8.5.2 Commercial BI tools
-- 8.6 Tools for AI and machine learning workloads
-- 8.7 Choosing the right consumption tools: Ten illustrated scenarios
-  - 8.7.1 Startup with a data science focus
-  - 8.7.2 Large financial institution with strict governance
-  - 8.7.3 Mid-sized e-commerce platform building embedded analytics
-  - 8.7.4 Decentralized media organization enabling self-service analytics
-  - 8.7.5 Government agency balancing public transparency and internal control
-  - 8.7.6 Healthcare provider with compliance and data locality constraints
-  - 8.7.7 Logistics company unifying real-time operations and historical analysis
-  - 8.7.8 SaaS company offering customizable data access to clients
-  - 8.7.9 Nonprofit organization supporting collaborative research
-  - 8.7.10 Manufacturing company enabling predictive maintenance
-- 8.8 Summary
+- 8.5 Outils d'intelligence d'affaires dans le lakehouse
+  - 8.5.1 Outils BI open source
+  - 8.5.2 Outils BI commerciaux
+- 8.6 Outils pour les charges de travail d'IA et d'apprentissage automatique
+- 8.7 Choisir les bons outils de consommation : Dix scénarios illustrés
+  - 8.7.1 Startup avec un focus data science
+  - 8.7.2 Grande institution financière avec une gouvernance stricte
+  - 8.7.3 Plateforme e-commerce de taille moyenne construisant des analyses intégrées
+  - 8.7.4 Organisation média décentralisée permettant l'analyse en libre-service
+  - 8.7.5 Agence gouvernementale équilibrant la transparence publique et le contrôle interne
+  - 8.7.6 Fournisseur de soins de santé avec des contraintes de conformité et de localité des données
+  - 8.7.7 Entreprise de logistique unifiant les opérations en temps réel et l'analyse historique
+  - 8.7.8 Entreprise SaaS offrant un accès personnalisable aux données aux clients
+  - 8.7.9 Organisation à but non lucratif soutenant la recherche collaborative
+  - 8.7.10 Entreprise manufacturière permettant la maintenance prédictive
+- 8.8 Résumé
 
-## **PART 3: OPERATING YOUR APACHE ICEBERG LAKEHOUSE**
+## **PARTIE 3 : OPÉRER VOTRE LAKEHOUSE APACHE ICEBERG**
 
 Voici la structure complète des **chapitres 9 et 10** du livre "Architecting an Apache Iceberg Lakehouse" par Alex Merced:[1]
 
-## **Chapitre 9 - MAINTAINING AN ICEBERG LAKEHOUSE**
+## **Chapitre 9 - MAINTENIR UN LAKEHOUSE ICEBERG**
 
-### 9.1 Problem: Suboptimal data files
-- 9.1.1 Small files
-- 9.1.2 Poorly colocated data
-- 9.1.3 Metadata sprawl
-- 9.1.4 Merge-on-read (MOR) performance hits
+### 9.1 Problème : Fichiers de données sous-optimaux
+- 9.1.1 Petits fichiers
+- 9.1.2 Données mal colocalisées
+- 9.1.3 Prolifération des métadonnées
+- 9.1.4 Impacts de performance Merge-on-read (MOR)
 
-### 9.2 Solution: Compaction
-- 9.2.1 What is compaction?
-- 9.2.2 Target file size
-- 9.2.3 Files to be included
-- 9.2.4 Using filters to scope compaction
+### 9.2 Solution : Compaction
+- 9.2.1 Qu'est-ce que la compaction ?
+- 9.2.2 Taille de fichier cible
+- 9.2.3 Fichiers à inclure
+- 9.2.4 Utilisation de filtres pour délimiter la compaction
 
-### 9.3 Storage footprint management and data retention
-- 9.3.1 Running snapshot expiration
-- 9.3.2 COW vs MOR: Implications for data retention
-- 9.3.3 Regulatory considerations for data deletion
+### 9.3 Gestion de l'empreinte de stockage et rétention des données
+- 9.3.1 Exécution de l'expiration des snapshots
+- 9.3.2 COW vs MOR : Implications pour la rétention des données
+- 9.3.3 Considérations réglementaires pour la suppression des données
 
-### 9.4 Exploring Apache Iceberg's metadata tables
+### 9.4 Exploration des tables de métadonnées d'Apache Iceberg
 
-### 9.5 Access controls in an Iceberg lakehouse
-- 9.5.1 Storage layer controls
-- 9.5.2 Catalog-level controls
-- 9.5.3 Engine-level access controls
+### 9.5 Contrôles d'accès dans un lakehouse Iceberg
+- 9.5.1 Contrôles de la couche de stockage
+- 9.5.2 Contrôles au niveau du catalogue
+- 9.5.3 Contrôles d'accès au niveau du moteur
 
-### 9.6 Summary
-
-***
-
-## **Chapitre 10 - OPERATIONALIZING APACHE ICEBERG**
-
-### 10.1 Orchestrating the lakehouse
-- 10.1.1 Choosing orchestration tools and patterns
-- 10.1.2 Metadata-driven triggers for proactive maintenance
-- 10.1.3 Per-table maintenance policies
-- 10.1.4 Monitoring and alerting integration
-- 10.1.5 Putting orchestration into practice
-
-### 10.2 Auditing the lakehouse
-- 10.2.1 Leveraging snapshot history for change tracking
-- 10.2.2 Using branching and tagging for governance
-- 10.2.3 Implementing file and snapshot retention policies
-- 10.2.4 Practical retention policy orchestration
-- 10.2.5 Secure data deletion
-- 10.2.6 Access auditing and governance
-- 10.2.7 Practical auditing with Iceberg: Example workflows
-
-### 10.3 Disaster recovery in the lakehouse
-- 10.3.1 The role of the metadata catalog in disaster recovery
-- 10.3.2 Protecting against data loss and corruption
-- 10.3.3 Cross-region and multi-environment recovery
-- 10.3.4 Rollback and time travel in incident response
-- 10.3.5 Automating disaster recovery procedures
-- 10.3.6 Validating recovery readiness
-- 10.3.7 Disaster recovery through automation
-- 10.3.8 Practical examples: Automating recovery workflows
-
-### 10.4 Summary
-
-Voici les **appendices A, B et C au complet** du livre "Architecting an Apache Iceberg Lakehouse" par Alex Merced:[1]
+### 9.6 Résumé
 
 ***
 
-## **APPENDIX A: THE METADATA TABLES**
+## **Chapitre 10 - OPÉRATIONNALISER APACHE ICEBERG**
 
-### A.1 Querying Iceberg metadata tables
+### 10.1 Orchestration du lakehouse
+- 10.1.1 Choix des outils et modèles d'orchestration
+- 10.1.2 Déclencheurs basés sur les métadonnées pour une maintenance proactive
+- 10.1.3 Politiques de maintenance par table
+- 10.1.4 Intégration de la surveillance et des alertes
+- 10.1.5 Mise en pratique de l'orchestration
 
-### A.2 The history metadata table
+### 10.2 Audit du lakehouse
+- 10.2.1 Tirer parti de l'historique des snapshots pour le suivi des changements
+- 10.2.2 Utilisation du branchement et du marquage pour la gouvernance
+- 10.2.3 Implémentation des politiques de rétention des fichiers et snapshots
+- 10.2.4 Orchestration pratique des politiques de rétention
+- 10.2.5 Suppression sécurisée des données
+- 10.2.6 Audit d'accès et gouvernance
+- 10.2.7 Audit pratique avec Iceberg : Exemples de flux de travail
 
-### A.3 The snapshots metadata table
+### 10.3 Récupération après sinistre dans le lakehouse
+- 10.3.1 Le rôle du catalogue de métadonnées dans la récupération après sinistre
+- 10.3.2 Protection contre la perte et la corruption des données
+- 10.3.3 Récupération multi-région et multi-environnement
+- 10.3.4 Retour en arrière et voyage dans le temps dans la réponse aux incidents
+- 10.3.5 Automatisation des procédures de récupération après sinistre
+- 10.3.6 Validation de la préparation à la récupération
+- 10.3.7 Récupération après sinistre par automatisation
+- 10.3.8 Exemples pratiques : Automatisation des flux de travail de récupération
 
-### A.4 The metadata_log_entries metadata table
+### 10.4 Résumé
 
-### A.5 The manifests metadata table
-
-### A.6 The partitions metadata table
-
-### A.7 The files metadata table
-
-### A.8 The manifests metadata table
-
-### A.9 The partitions metadata table
-
-### A.10 The position_deletes metadata table
-
-### A.11 The all_data_files metadata table
-
-### A.12 The all_delete_files metadata table
-
-### A.13 The all_entries metadata table
-
-### A.14 The all_manifests metadata table
-
-### A.15 The refs metadata table
-
-### A.16 Monitoring table health with metadata tables
+Voici les **annexes A, B et C au complet** du livre "Architecting an Apache Iceberg Lakehouse" par Alex Merced:[1]
 
 ***
 
-## **APPENDIX B: PYTHON FOR APACHE ICEBERG**
+## **ANNEXE A : LES TABLES DE MÉTADONNÉES**
+
+### A.1 Interrogation des tables de métadonnées Iceberg
+
+### A.2 La table de métadonnées history
+
+### A.3 La table de métadonnées snapshots
+
+### A.4 La table de métadonnées metadata_log_entries
+
+### A.5 La table de métadonnées manifests
+
+### A.6 La table de métadonnées partitions
+
+### A.7 La table de métadonnées files
+
+### A.8 La table de métadonnées manifests
+
+### A.9 La table de métadonnées partitions
+
+### A.10 La table de métadonnées position_deletes
+
+### A.11 La table de métadonnées all_data_files
+
+### A.12 La table de métadonnées all_delete_files
+
+### A.13 La table de métadonnées all_entries
+
+### A.14 La table de métadonnées all_manifests
+
+### A.15 La table de métadonnées refs
+
+### A.16 Surveillance de la santé des tables avec les tables de métadonnées
+
+***
+
+## **ANNEXE B : PYTHON POUR APACHE ICEBERG**
 
 ### B.1 PyIceberg
 
@@ -358,42 +358,42 @@ Voici les **appendices A, B et C au complet** du livre "Architecting an Apache I
 
 ### B.7 SpiceAI
 
-### B.8 Summary and best practices
+### B.8 Résumé et meilleures pratiques
 
 ***
 
-## **APPENDIX C: THE APACHE ICEBERG SPECIFICATION**
+## **ANNEXE C : LA SPÉCIFICATION APACHE ICEBERG**
 
-### C.1 Understanding the Iceberg specification
-- C.1.1 What is a table format specification?
-- C.1.2 Why Iceberg formalizes table behavior
-- C.1.3 Evolution of the spec: versioning principles and compatibility
+### C.1 Comprendre la spécification Iceberg
+- C.1.1 Qu'est-ce qu'une spécification de format de table ?
+- C.1.2 Pourquoi Iceberg formalise le comportement des tables
+- C.1.3 Évolution de la spécification : principes de versionnement et compatibilité
 
-### C.2 Iceberg table format versions
-- C.2.1 Version 1: Foundation for analytical tables
-- C.2.2 Version 2: Row-level deletes and stricter writes
-- C.2.3 Version 3: Extended types and advanced capabilities
-- C.2.4 Version 4: Performance, portability, and real-time readiness
+### C.2 Versions du format de table Iceberg
+- C.2.1 Version 1 : Fondation pour les tables analytiques
+- C.2.2 Version 2 : Suppressions au niveau des lignes et écritures plus strictes
+- C.2.3 Version 3 : Types étendus et capacités avancées
+- C.2.4 Version 4 : Performance, portabilité et préparation au temps réel
 
-### C.3 Snapshot management and table metadata
-- C.3.1 Table metadata files
-- C.3.2 Snapshots and the manifest list
-- C.3.3 Sequence numbers and optimistic concurrency
+### C.3 Gestion des snapshots et métadonnées de table
+- C.3.1 Fichiers de métadonnées de table
+- C.3.2 Snapshots et la liste des manifestes
+- C.3.3 Numéros de séquence et concurrence optimiste
 
-### C.4 The REST Catalog specification
-- C.4.1 Overview and purpose
-- C.4.2 Catalog configuration and default endpoints
-- C.4.3 Namespaces, tables, and views
-- C.4.4 Table registration, metrics, and transactions
-- C.4.5 OAuth2 support and security considerations
-- C.4.6 The scan planning endpoint
+### C.4 La spécification REST Catalog
+- C.4.1 Aperçu et objectif
+- C.4.2 Configuration du catalogue et points de terminaison par défaut
+- C.4.3 Espaces de noms, tables et vues
+- C.4.4 Enregistrement des tables, métriques et transactions
+- C.4.5 Prise en charge OAuth2 et considérations de sécurité
+- C.4.6 Le point de terminaison de planification de scan
 
-### C.5 Puffin file format specification
-- C.5.1 What is a Puffin file?
-- C.5.2 Storing column-level metrics and custom indexes
-- C.5.3 Integration with Iceberg table metadata
+### C.5 Spécification du format de fichier Puffin
+- C.5.1 Qu'est-ce qu'un fichier Puffin ?
+- C.5.2 Stockage des métriques au niveau des colonnes et index personnalisés
+- C.5.3 Intégration avec les métadonnées de table Iceberg
 
-### C.6 Compatibility and migration
-- C.6.1 Reading and writing across format versions
-- C.6.2 Upgrading tables to newer spec versions
-- C.6.3 Handling backward compatibility in practice
+### C.6 Compatibilité et migration
+- C.6.1 Lecture et écriture à travers les versions de format
+- C.6.2 Mise à niveau des tables vers des versions plus récentes de la spécification
+- C.6.3 Gestion de la compatibilité descendante en pratique
