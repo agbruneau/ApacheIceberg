@@ -1,4 +1,4 @@
-Voici la table des matières complète du livre **"Architecting an Apache Iceberg Lakehouse"** par Alex Merced :[1]
+Apache Iceber pour Architectes
 
 ## **PARTIE 1 : LA VALEUR DU LAKEHOUSE APACHE ICEBERG**
 
