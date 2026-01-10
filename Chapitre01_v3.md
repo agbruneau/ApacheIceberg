@@ -1,4 +1,4 @@
-# Chapitre 1 : Le Monde du Lakehouse Apache Iceberg
+# Chapitre 1 : Le Monde du Lakehouse Apache Iceberg - Claude Opus 4.5
 
 ## Introduction
 
