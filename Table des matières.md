@@ -248,7 +248,7 @@
 
 ## **PARTIE 3 : OPÉRER VOTRE LAKEHOUSE APACHE ICEBERG**
 
-Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre "Architecting an Apache Iceberg Lakehouse" par Alex Merced, avec les chapitres 11, 12, 13 et 14 basés sur le contenu du Livre Blanc sur le Streaming Lakehouse :[1]
+Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre "Architecting an Apache Iceberg Lakehouse" par Alex Merced, avec les chapitres 11, 13 et 14 basés sur le contenu du Livre Blanc sur le Streaming Lakehouse :[1]
 
 ## **Chapitre 9 - MAINTENIR UN LAKEHOUSE ICEBERG**
 
@@ -349,175 +349,175 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 
 ---
 
-## **Chapitre 12 - L'INTÉGRATION AVEC MICROSOFT FABRIC ET POWER BI**
+## **Chapitre 12 - SÉCURITÉ, GOUVERNANCE ET CONFORMITÉ DU LAKEHOUSE**
 
-### 12.1 OneLake Shortcuts et Virtualisation
+### 12.1 Fondements de la sécurité dans un Lakehouse Apache Iceberg
 
-- 12.1.1 Concept de Shortcuts dans OneLake
-  - 12.1.1.1 Montage de tables Iceberg externes sans copie de données
-  - 12.1.1.2 Support des sources S3 et ADLS générées par Confluent/Snowflake
-- 12.1.2 Virtualisation Bidirectionnelle
-  - 12.1.2.1 Couche de traduction de métadonnées basée sur Apache XTable
-  - 12.1.2.2 Mapping dynamique des métadonnées Iceberg vers Delta Lake
-  - 12.1.2.3 Accessibilité via moteurs Spark de Fabric et SQL Endpoint
-- 12.1.3 Contraintes et considérations
-  - 12.1.3.1 Contrainte de région : alignement géographique requis
-  - 12.1.3.2 Impact sur les coûts d'egress et les performances
-  - 12.1.3.3 Cas spécifique : banques canadiennes et région Canada Central
+- 12.1.1 Modèles de menaces spécifiques aux architectures Lakehouse
+  - 12.1.1.1 Surface d'attaque distribuée (stockage, catalogue, moteurs)
+  - 12.1.1.2 Risques liés à l'accès multi-tenant
+  - 12.1.1.3 Vulnérabilités des pipelines d'ingestion
+- 12.1.2 Principes de défense en profondeur
+  - 12.1.2.1 Segmentation réseau et isolation
+  - 12.1.2.2 Principe du moindre privilège
+  - 12.1.2.3 Chiffrement au repos et en transit
+- 12.1.3 Architecture Zero Trust pour le Lakehouse
+  - 12.1.3.1 Authentification continue et contextuelle
+  - 12.1.3.2 Micro-segmentation des accès aux données
+  - 12.1.3.3 Validation des identités à chaque couche
 
-### 12.2 Power BI Direct Lake : Latence et Performance
+### 12.2 Gouvernance des données à l'échelle entreprise
 
-- 12.2.1 Le mode Direct Lake comme rupture technologique
-  - 12.2.1.1 Comparaison avec le mode Import et DirectQuery
-  - 12.2.1.2 Lecture directe des fichiers Parquet par le moteur VertiPaq
-- 12.2.2 Impact et capacités
-  - 12.2.2.1 Visualisation de volumes massifs (Pétaoctets)
-  - 12.2.2.2 Performances interactives proches du mode Import
-- 12.2.3 Latence de synchronisation
-  - 12.2.3.1 Processus de synchronisation Kafka → Iceberg → OneLake → Power BI
-  - 12.2.3.2 Variation de latence selon la configuration de cache
-  - 12.2.3.3 Considérations pour tableaux de bord opérationnels temps réel
+- 12.2.1 Catalogage et lignage des données
+  - 12.2.1.1 Métadonnées techniques vs métadonnées métier
+  - 12.2.1.2 Traçabilité end-to-end avec Apache Atlas et alternatives
+  - 12.2.1.3 Intégration du lignage dans les pipelines Iceberg
+- 12.2.2 Qualité des données et observabilité
+  - 12.2.2.1 Validation de schéma et contrats de données
+  - 12.2.2.2 Métriques de qualité automatisées (Great Expectations, Deequ)
+  - 12.2.2.3 Alertes et tableaux de bord de santé des données
+- 12.2.3 Gestion du cycle de vie des données
+  - 12.2.3.1 Classification automatique des données sensibles
+  - 12.2.3.2 Politiques de rétention et archivage
+  - 12.2.3.3 Suppression sécurisée et droit à l'oubli
 
-### 12.3 Résumé
+### 12.3 Conformité réglementaire et cadres légaux
 
----
+- 12.3.1 Réglementations canadiennes
+  - 12.3.1.1 LPRPDE (Loi sur la protection des renseignements personnels)
+  - 12.3.1.2 Loi 25 du Québec et implications pour les Lakehouses
+  - 12.3.1.3 Directives du BSIF pour les institutions financières
+  - 12.3.1.4 Exigences de résidence des données au Canada
+- 12.3.2 Réglementations internationales
+  - 12.3.2.1 RGPD/GDPR et transferts transfrontaliers
+  - 12.3.2.2 SOC 2 Type II et certifications de sécurité
+  - 12.3.2.3 PCI-DSS pour les données de paiement
+  - 12.3.2.4 HIPAA pour les données de santé
+- 12.3.3 Audit et preuve de conformité
+  - 12.3.3.1 Journalisation exhaustive des accès
+  - 12.3.3.2 Rapports automatisés pour les auditeurs
+  - 12.3.3.3 Démonstration de conformité via time-travel Iceberg
 
-## **Chapitre 13 - CONTEXTE CANADIEN ET ÉTUDES DE CAS**
+### 12.4 Contrôles d'accès avancés
 
-### 13.1 Introduction au contexte canadien
+- 12.4.1 RBAC, ABAC et contrôles hybrides
+  - 12.4.1.1 Modèles basés sur les rôles vs attributs
+  - 12.4.1.2 Politiques dynamiques selon le contexte
+  - 12.4.1.3 Intégration avec les systèmes d'identité d'entreprise (LDAP, Azure AD)
+- 12.4.2 Sécurité au niveau des lignes et colonnes
+  - 12.4.2.1 Row-Level Security (RLS) dans les moteurs de requête
+  - 12.4.2.2 Column-Level Security et masquage dynamique
+  - 12.4.2.3 Implémentation avec Dremio, Trino et Spark
+- 12.4.3 Tokenisation et anonymisation
+  - 12.4.3.1 Pseudonymisation réversible vs irréversible
+  - 12.4.3.2 Techniques de k-anonymat et differential privacy
+  - 12.4.3.3 Cas d'usage : données de test et environnements non-production
 
-- 13.1.1 Souveraineté numérique et modernisation des infrastructures
-- 13.1.2 Influence sur l'adoption des technologies de Streaming Lakehouse
+### 12.5 Patterns d'architecture sécurisée
 
-### 13.2 Étude de Cas : Banque Royale du Canada (RBC)
+- 12.5.1 Architecture multi-zone de sécurité
+  - 12.5.1.1 Zone raw, curated et consumption
+  - 12.5.1.2 Isolation des environnements sensibles
+  - 12.5.1.3 Data Clean Rooms pour le partage sécurisé
+- 12.5.2 Gestion des secrets et credentials
+  - 12.5.2.1 HashiCorp Vault, AWS Secrets Manager, Azure Key Vault
+  - 12.5.2.2 Rotation automatique des clés de chiffrement
+  - 12.5.2.3 Injection sécurisée dans les pipelines
+- 12.5.3 Détection et réponse aux incidents
+  - 12.5.3.1 SIEM et corrélation d'événements de sécurité
+  - 12.5.3.2 Détection d'anomalies d'accès aux données
+  - 12.5.3.3 Playbooks de réponse aux incidents data breach
 
-- 13.2.1 Contexte et défis initiaux
-  - 13.2.1.1 Dépendance aux mainframes coûteux (MIPS)
-  - 13.2.1.2 Difficulté à innover sur des données cloisonnées
-- 13.2.2 Solution architecturale
-  - 13.2.2.1 Utilisation de Kafka pour "découper le monolithe" (Monolith Slicing)
-  - 13.2.2.2 Capture en temps réel des transactions
-  - 13.2.2.3 Diffusion vers applications aval sans re-solliciter le mainframe
-- 13.2.3 Résultats et bénéfices
-  - 13.2.3.1 Réduction drastique des coûts MIPS
-  - 13.2.3.2 Accélération de la détection de fraude (de plusieurs semaines à quelques secondes)
-  - 13.2.3.3 Historisation avec Iceberg pour l'entraînement de modèles IA
-  - 13.2.3.4 Données souveraines hébergées au Canada
-
-### 13.3 Étude de Cas : Bell Canada
-
-- 13.3.1 Contexte et défis
-  - 13.3.1.1 Volumes massifs de logs hétérogènes
-  - 13.3.1.2 Sources multiples : routeurs, box, antennes
-- 13.3.2 Solution mise en place
-  - 13.3.2.1 Ingestion via Kafka
-  - 13.3.2.2 Normalisation des logs
-  - 13.3.2.3 Passage à une architecture Lakehouse
-- 13.3.3 Bénéfices opérationnels
-  - 13.3.3.1 Conservation à long terme à faible coût (conformité légale)
-  - 13.3.3.2 Stockage objet économique
-  - 13.3.3.3 Requêtes SQL rapides pour investigation d'incidents de sécurité
-  - 13.3.3.4 Support du SOC (Security Operations Center)
-
-### 13.4 Souveraineté des Données et Infrastructure Régionale
-
-- 13.4.1 Conformité et directives fédérales
-  - 13.4.1.1 Stratégie infonuagique du gouvernement du Canada
-  - 13.4.1.2 Exigences de résidence des données au pays
-- 13.4.2 Comparaison régionale : AWS Canada vs US East
-  - 13.4.2.1 AWS Canada Central (ca-central-1) vs US East (N. Virginia)
-  - 13.4.2.2 Coûts et considérations financières (+10-15% pour la région canadienne)
-  - 13.4.2.3 Déploiement de services de pointe
-  - 13.4.2.4 Mandat pour données PII bancaires et gouvernementales
-- 13.4.3 Analyse de latence
-  - 13.4.3.1 Latence réseau pour utilisateurs basés à Toronto/Montréal
-  - 13.4.3.2 Comparaison ca-central-1 (<10ms) vs Virginie (~20-30ms)
-  - 13.4.3.3 Impact sur applications interactives Power BI Direct Lake
-
-### 13.5 Résumé
+### 12.6 Résumé
 
 ---
 
-## **Chapitre 14 - SÉCURITÉ, GOUVERNANCE ET CONFORMITÉ DU LAKEHOUSE**
+## **Chapitre 13 - L'INTÉGRATION AVEC MICROSOFT FABRIC ET POWER BI**
 
-### 14.1 Fondements de la sécurité dans un Lakehouse Apache Iceberg
+### 13.1 OneLake Shortcuts et Virtualisation
 
-- 14.1.1 Modèles de menaces spécifiques aux architectures Lakehouse
-  - 14.1.1.1 Surface d'attaque distribuée (stockage, catalogue, moteurs)
-  - 14.1.1.2 Risques liés à l'accès multi-tenant
-  - 14.1.1.3 Vulnérabilités des pipelines d'ingestion
-- 14.1.2 Principes de défense en profondeur
-  - 14.1.2.1 Segmentation réseau et isolation
-  - 14.1.2.2 Principe du moindre privilège
-  - 14.1.2.3 Chiffrement au repos et en transit
-- 14.1.3 Architecture Zero Trust pour le Lakehouse
-  - 14.1.3.1 Authentification continue et contextuelle
-  - 14.1.3.2 Micro-segmentation des accès aux données
-  - 14.1.3.3 Validation des identités à chaque couche
+- 13.1.1 Concept de Shortcuts dans OneLake
+  - 13.1.1.1 Montage de tables Iceberg externes sans copie de données
+  - 13.1.1.2 Support des sources S3 et ADLS générées par Confluent/Snowflake
+- 13.1.2 Virtualisation Bidirectionnelle
+  - 13.1.2.1 Couche de traduction de métadonnées basée sur Apache XTable
+  - 13.1.2.2 Mapping dynamique des métadonnées Iceberg vers Delta Lake
+  - 13.1.2.3 Accessibilité via moteurs Spark de Fabric et SQL Endpoint
+- 13.1.3 Contraintes et considérations
+  - 13.1.3.1 Contrainte de région : alignement géographique requis
+  - 13.1.3.2 Impact sur les coûts d'egress et les performances
+  - 13.1.3.3 Cas spécifique : banques canadiennes et région Canada Central
 
-### 14.2 Gouvernance des données à l'échelle entreprise
+### 13.2 Power BI Direct Lake : Latence et Performance
 
-- 14.2.1 Catalogage et lignage des données
-  - 14.2.1.1 Métadonnées techniques vs métadonnées métier
-  - 14.2.1.2 Traçabilité end-to-end avec Apache Atlas et alternatives
-  - 14.2.1.3 Intégration du lignage dans les pipelines Iceberg
-- 14.2.2 Qualité des données et observabilité
-  - 14.2.2.1 Validation de schéma et contrats de données
-  - 14.2.2.2 Métriques de qualité automatisées (Great Expectations, Deequ)
-  - 14.2.2.3 Alertes et tableaux de bord de santé des données
-- 14.2.3 Gestion du cycle de vie des données
-  - 14.2.3.1 Classification automatique des données sensibles
-  - 14.2.3.2 Politiques de rétention et archivage
-  - 14.2.3.3 Suppression sécurisée et droit à l'oubli
+- 13.2.1 Le mode Direct Lake comme rupture technologique
+  - 13.2.1.1 Comparaison avec le mode Import et DirectQuery
+  - 13.2.1.2 Lecture directe des fichiers Parquet par le moteur VertiPaq
+- 13.2.2 Impact et capacités
+  - 13.2.2.1 Visualisation de volumes massifs (Pétaoctets)
+  - 13.2.2.2 Performances interactives proches du mode Import
+- 13.2.3 Latence de synchronisation
+  - 13.2.3.1 Processus de synchronisation Kafka → Iceberg → OneLake → Power BI
+  - 13.2.3.2 Variation de latence selon la configuration de cache
+  - 13.2.3.3 Considérations pour tableaux de bord opérationnels temps réel
 
-### 14.3 Conformité réglementaire et cadres légaux
+### 13.3 Résumé
 
-- 14.3.1 Réglementations canadiennes
-  - 14.3.1.1 LPRPDE (Loi sur la protection des renseignements personnels)
-  - 14.3.1.2 Loi 25 du Québec et implications pour les Lakehouses
-  - 14.3.1.3 Directives du BSIF pour les institutions financières
-  - 14.3.1.4 Exigences de résidence des données au Canada
-- 14.3.2 Réglementations internationales
-  - 14.3.2.1 RGPD/GDPR et transferts transfrontaliers
-  - 14.3.2.2 SOC 2 Type II et certifications de sécurité
-  - 14.3.2.3 PCI-DSS pour les données de paiement
-  - 14.3.2.4 HIPAA pour les données de santé
-- 14.3.3 Audit et preuve de conformité
-  - 14.3.3.1 Journalisation exhaustive des accès
-  - 14.3.3.2 Rapports automatisés pour les auditeurs
-  - 14.3.3.3 Démonstration de conformité via time-travel Iceberg
+---
 
-### 14.4 Contrôles d'accès avancés
+## **Chapitre 14 - CONTEXTE CANADIEN ET ÉTUDES DE CAS**
 
-- 14.4.1 RBAC, ABAC et contrôles hybrides
-  - 14.4.1.1 Modèles basés sur les rôles vs attributs
-  - 14.4.1.2 Politiques dynamiques selon le contexte
-  - 14.4.1.3 Intégration avec les systèmes d'identité d'entreprise (LDAP, Azure AD)
-- 14.4.2 Sécurité au niveau des lignes et colonnes
-  - 14.4.2.1 Row-Level Security (RLS) dans les moteurs de requête
-  - 14.4.2.2 Column-Level Security et masquage dynamique
-  - 14.4.2.3 Implémentation avec Dremio, Trino et Spark
-- 14.4.3 Tokenisation et anonymisation
-  - 14.4.3.1 Pseudonymisation réversible vs irréversible
-  - 14.4.3.2 Techniques de k-anonymat et differential privacy
-  - 14.4.3.3 Cas d'usage : données de test et environnements non-production
+### 14.1 Introduction au contexte canadien
 
-### 14.5 Patterns d'architecture sécurisée
+- 14.1.1 Souveraineté numérique et modernisation des infrastructures
+- 14.1.2 Influence sur l'adoption des technologies de Streaming Lakehouse
 
-- 14.5.1 Architecture multi-zone de sécurité
-  - 14.5.1.1 Zone raw, curated et consumption
-  - 14.5.1.2 Isolation des environnements sensibles
-  - 14.5.1.3 Data Clean Rooms pour le partage sécurisé
-- 14.5.2 Gestion des secrets et credentials
-  - 14.5.2.1 HashiCorp Vault, AWS Secrets Manager, Azure Key Vault
-  - 14.5.2.2 Rotation automatique des clés de chiffrement
-  - 14.5.2.3 Injection sécurisée dans les pipelines
-- 14.5.3 Détection et réponse aux incidents
-  - 14.5.3.1 SIEM et corrélation d'événements de sécurité
-  - 14.5.3.2 Détection d'anomalies d'accès aux données
-  - 14.5.3.3 Playbooks de réponse aux incidents data breach
+### 14.2 Étude de Cas : Banque Royale du Canada (RBC)
 
-### 14.6 Résumé
+- 14.2.1 Contexte et défis initiaux
+  - 14.2.1.1 Dépendance aux mainframes coûteux (MIPS)
+  - 14.2.1.2 Difficulté à innover sur des données cloisonnées
+- 14.2.2 Solution architecturale
+  - 14.2.2.1 Utilisation de Kafka pour "découper le monolithe" (Monolith Slicing)
+  - 14.2.2.2 Capture en temps réel des transactions
+  - 14.2.2.3 Diffusion vers applications aval sans re-solliciter le mainframe
+- 14.2.3 Résultats et bénéfices
+  - 14.2.3.1 Réduction drastique des coûts MIPS
+  - 14.2.3.2 Accélération de la détection de fraude (de plusieurs semaines à quelques secondes)
+  - 14.2.3.3 Historisation avec Iceberg pour l'entraînement de modèles IA
+  - 14.2.3.4 Données souveraines hébergées au Canada
+
+### 14.3 Étude de Cas : Bell Canada
+
+- 14.3.1 Contexte et défis
+  - 14.3.1.1 Volumes massifs de logs hétérogènes
+  - 14.3.1.2 Sources multiples : routeurs, box, antennes
+- 14.3.2 Solution mise en place
+  - 14.3.2.1 Ingestion via Kafka
+  - 14.3.2.2 Normalisation des logs
+  - 14.3.2.3 Passage à une architecture Lakehouse
+- 14.3.3 Bénéfices opérationnels
+  - 14.3.3.1 Conservation à long terme à faible coût (conformité légale)
+  - 14.3.3.2 Stockage objet économique
+  - 14.3.3.3 Requêtes SQL rapides pour investigation d'incidents de sécurité
+  - 14.3.3.4 Support du SOC (Security Operations Center)
+
+### 14.4 Souveraineté des Données et Infrastructure Régionale
+
+- 14.4.1 Conformité et directives fédérales
+  - 14.4.1.1 Stratégie infonuagique du gouvernement du Canada
+  - 14.4.1.2 Exigences de résidence des données au pays
+- 14.4.2 Comparaison régionale : AWS Canada vs US East
+  - 14.4.2.1 AWS Canada Central (ca-central-1) vs US East (N. Virginia)
+  - 14.4.2.2 Coûts et considérations financières (+10-15% pour la région canadienne)
+  - 14.4.2.3 Déploiement de services de pointe
+  - 14.4.2.4 Mandat pour données PII bancaires et gouvernementales
+- 14.4.3 Analyse de latence
+  - 14.4.3.1 Latence réseau pour utilisateurs basés à Toronto/Montréal
+  - 14.4.3.2 Comparaison ca-central-1 (<10ms) vs Virginie (~20-30ms)
+  - 14.4.3.3 Impact sur applications interactives Power BI Direct Lake
+
+### 14.5 Résumé
 
 ---
 
@@ -577,100 +577,44 @@ Voici la structure complète des **chapitres 9, 10, 11, 12, 13 et 14** du livre 
 
 ### 15.5 Résumé final et appel à l'action
 
-## **ANNEXE A : LES TABLES DE MÉTADONNÉES**
+## **ANNEXE A : LA SPÉCIFICATION APACHE ICEBERG**
 
-### A.1 Interrogation des tables de métadonnées Iceberg
+### A.1 Comprendre la spécification Iceberg
 
-### A.2 La table de métadonnées history
+- A.1.1 Qu'est-ce qu'une spécification de format de table ?
+- A.1.2 Pourquoi Iceberg formalise le comportement des tables
+- A.1.3 Évolution de la spécification : principes de versionnement et compatibilité
 
-### A.3 La table de métadonnées snapshots
+### A.2 Versions du format de table Iceberg
 
-### A.4 La table de métadonnées metadata_log_entries
+- A.2.1 Version 1 : Fondation pour les tables analytiques
+- A.2.2 Version 2 : Suppressions au niveau des lignes et écritures plus strictes
+- A.2.3 Version 3 : Types étendus et capacités avancées
+- A.2.4 Version 4 : Performance, portabilité et préparation au temps réel
 
-### A.5 La table de métadonnées manifests
+### A.3 Gestion des snapshots et métadonnées de table
 
-### A.6 La table de métadonnées partitions
+- A.3.1 Fichiers de métadonnées de table
+- A.3.2 Snapshots et la liste des manifestes
+- A.3.3 Numéros de séquence et concurrence optimiste
 
-### A.7 La table de métadonnées files
+### A.4 La spécification REST Catalog
 
-### A.8 La table de métadonnées manifests
+- A.4.1 Aperçu et objectif
+- A.4.2 Configuration du catalogue et points de terminaison par défaut
+- A.4.3 Espaces de noms, tables et vues
+- A.4.4 Enregistrement des tables, métriques et transactions
+- A.4.5 Prise en charge OAuth2 et considérations de sécurité
+- A.4.6 Le point de terminaison de planification de scan
 
-### A.9 La table de métadonnées partitions
+### A.5 Spécification du format de fichier Puffin
 
-### A.10 La table de métadonnées position_deletes
+- A.5.1 Qu'est-ce qu'un fichier Puffin ?
+- A.5.2 Stockage des métriques au niveau des colonnes et index personnalisés
+- A.5.3 Intégration avec les métadonnées de table Iceberg
 
-### A.11 La table de métadonnées all_data_files
+### A.6 Compatibilité et migration
 
-### A.12 La table de métadonnées all_delete_files
-
-### A.13 La table de métadonnées all_entries
-
-### A.14 La table de métadonnées all_manifests
-
-### A.15 La table de métadonnées refs
-
-### A.16 Surveillance de la santé des tables avec les tables de métadonnées
-
----
-
-## **ANNEXE B : PYTHON POUR APACHE ICEBERG**
-
-### B.1 PyIceberg
-
-### B.2 Polars
-
-### B.3 DuckDB
-
-### B.4 Daft
-
-### B.5 Dremio
-
-### B.6 Bauplan
-
-### B.7 SpiceAI
-
-### B.8 Résumé et meilleures pratiques
-
----
-
-## **ANNEXE C : LA SPÉCIFICATION APACHE ICEBERG**
-
-### C.1 Comprendre la spécification Iceberg
-
-- C.1.1 Qu'est-ce qu'une spécification de format de table ?
-- C.1.2 Pourquoi Iceberg formalise le comportement des tables
-- C.1.3 Évolution de la spécification : principes de versionnement et compatibilité
-
-### C.2 Versions du format de table Iceberg
-
-- C.2.1 Version 1 : Fondation pour les tables analytiques
-- C.2.2 Version 2 : Suppressions au niveau des lignes et écritures plus strictes
-- C.2.3 Version 3 : Types étendus et capacités avancées
-- C.2.4 Version 4 : Performance, portabilité et préparation au temps réel
-
-### C.3 Gestion des snapshots et métadonnées de table
-
-- C.3.1 Fichiers de métadonnées de table
-- C.3.2 Snapshots et la liste des manifestes
-- C.3.3 Numéros de séquence et concurrence optimiste
-
-### C.4 La spécification REST Catalog
-
-- C.4.1 Aperçu et objectif
-- C.4.2 Configuration du catalogue et points de terminaison par défaut
-- C.4.3 Espaces de noms, tables et vues
-- C.4.4 Enregistrement des tables, métriques et transactions
-- C.4.5 Prise en charge OAuth2 et considérations de sécurité
-- C.4.6 Le point de terminaison de planification de scan
-
-### C.5 Spécification du format de fichier Puffin
-
-- C.5.1 Qu'est-ce qu'un fichier Puffin ?
-- C.5.2 Stockage des métriques au niveau des colonnes et index personnalisés
-- C.5.3 Intégration avec les métadonnées de table Iceberg
-
-### C.6 Compatibilité et migration
-
-- C.6.1 Lecture et écriture à travers les versions de format
-- C.6.2 Mise à niveau des tables vers des versions plus récentes de la spécification
-- C.6.3 Gestion de la compatibilité descendante en pratique
+- A.6.1 Lecture et écriture à travers les versions de format
+- A.6.2 Mise à niveau des tables vers des versions plus récentes de la spécification
+- A.6.3 Gestion de la compatibilité descendante en pratique
