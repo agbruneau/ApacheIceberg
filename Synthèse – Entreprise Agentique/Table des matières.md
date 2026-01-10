@@ -1,5 +1,3 @@
-Voici le titre et la table des matières extraits du document :
-
 **Titre du document :**
 **Entreprise Agentique**
 _(Manifeste – André-Guy Bruneau M.Sc. IT – Décembre 2025)_
