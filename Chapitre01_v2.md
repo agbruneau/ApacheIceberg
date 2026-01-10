@@ -1,4 +1,4 @@
-# Chapitre 1 : L'Impératif du Lakehouse et l'Avènement d'Apache Iceberg
+# Chapitre 1 : L'Impératif du Lakehouse et l'Avènement d'Apache Iceberg - Gemini 3.0 Flash
 
 En tant qu'architecte de données, votre mission dépasse la simple gestion du stockage ; vous êtes le garant de la fiabilité, de la conformité et de l'agilité analytique de l'organisation. Ce chapitre explore la transition vers l'architecture **Data Lakehouse** sous un angle stratégique, en démontrant pourquoi Apache Iceberg est devenu le standard de choix pour les infrastructures modernes, notamment dans le contexte exigeant des entreprises nord-américaines.
 
