@@ -1,5 +1,4 @@
-**Titre du document :**
-**Entreprise Agentique**
+Titre : Synthèse – Entreprise Agentique
 _(Manifeste – André-Guy Bruneau M.Sc. IT – Décembre 2025)_
 
 **Table des matières :**

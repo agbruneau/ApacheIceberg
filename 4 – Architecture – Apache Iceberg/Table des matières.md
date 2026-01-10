@@ -1,5 +1,4 @@
-# Apache Iceberg pour Architectes
-## Guide complet pour concevoir, implémenter et opérer un Data Lakehouse moderne
+# Apache Iceberg - Guide complet pour concevoir, implémenter et opérer un Data Lakehouse moderne
 
 ---
 
