@@ -175,6 +175,7 @@ Utiliser des tableaux Markdown pour :
 - [ ] Résumé structuré en fin de chapitre
 - [ ] Sources citées correctement
 - [ ] Voix québécoise professionnelle maintenue
+- [ ] **Chapitre livré en format Word (.docx)**
 
 ### Points de Vigilance
 

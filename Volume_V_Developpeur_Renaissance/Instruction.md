@@ -188,6 +188,7 @@ Utiliser des tableaux Markdown pour :
 - [ ] Ton inspirant maintenu sans être moralisateur
 - [ ] Résumé structuré en fin de chapitre
 - [ ] Voix québécoise professionnelle maintenue
+- [ ] **Chapitre livré en format Word (.docx)**
 
 ### Points de Vigilance
 

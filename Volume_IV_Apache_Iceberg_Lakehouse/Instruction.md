@@ -186,6 +186,7 @@ Utiliser des tableaux Markdown pour :
 - [ ] Considérations de migration documentées
 - [ ] Résumé structuré en fin de chapitre
 - [ ] Voix québécoise professionnelle maintenue
+- [ ] **Chapitre livré en format Word (.docx)**
 
 ### Points de Vigilance
 
