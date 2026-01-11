@@ -16,7 +16,7 @@ Ton et style :
 
 Format des chapitres :
 
-- Longueur cible : 5000 mots
+- Longueur cible : 3000 à 4000 mots
 - Structure : Introduction (10%) → Développement Technique (80%) → Conclusion/Pratique (10%)
 - Sections avec sous-titres clairs (##, ###)
 - Code et configurations techniques en blocs appropriés

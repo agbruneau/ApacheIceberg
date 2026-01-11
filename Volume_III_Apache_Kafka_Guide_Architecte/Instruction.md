@@ -16,7 +16,7 @@ Ton et style :
 
 Format des chapitres :
 
-- Longueur cible : 6000 mots
+- Longueur cible : 3000 à 4000 mots
 - Structure : Introduction (10%) → Développement Architectural (80%) → Conclusion/Recommandations (10%)
 - Sections avec sous-titres clairs (##, ###)
 - "Notes de terrain" pour les retours d'expérience

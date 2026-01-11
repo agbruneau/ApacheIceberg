@@ -16,7 +16,7 @@ Ton et style :
 
 Format des chapitres :
 
-- Longueur cible : 5000 mots
+- Longueur cible : 3000 à 4000 mots
 - Structure : Introduction (10%) → Développement (80%) → Conclusion/Transition (10%)
 - Sections avec sous-titres clairs (##, ###)
 - Listes à puces avec parcimonie, préférer la prose
